@@ -1,122 +1,84 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import { questions } from './questions';
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [score, setScore] = useState(0);
+  const [lives, setLives] = useState(3);
+  const [selectedFeedback, setSelectedFeedback] = useState("");
+  const [gameOver, setGameOver] = useState(false);
+
+  const currentQ = questions[currentIndex];
+
+  const handleAnswer = (option) => {
+    setSelectedFeedback(option.feedback);
+    if (option.isCorrect) {
+      setScore(score + 10);
+    } else {
+      setLives(lives - 1);
+      if (lives - 1 <= 0) {
+        setGameOver(true);
+      }
+    }
+  };
+
+  const handleNext = () => {
+    setSelectedFeedback("");
+    if (currentIndex + 1 < questions.length) {
+      setCurrentIndex(currentIndex + 1);
+    } else {
+      setGameOver(true);
+    }
+  };
+
+  const restartGame = () => {
+    setCurrentIndex(0);
+    setScore(0);
+    setLives(3);
+    setSelectedFeedback("");
+    setGameOver(false);
+  };
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+    <div className="game-container">
+      <h1>Emergency Response Simulator</h1>
+      
+      {gameOver ? (
+        <div className="card">
+          <h2>Game Over!</h2>
+          <p>Your Final Score: {score}</p>
+          <button onClick={restartGame}>Play Again</button>
         </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+      ) : (
+        <div className="card">
+          <div className="stats">
+            <span>Score: {score}</span>
+            <span>Lives: {"❤️".repeat(lives)}</span>
+          </div>
 
-      <div className="ticks"></div>
+          <h2>{currentQ.scenario}</h2>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+          <div className="options-grid">
+            {currentQ.options.map((opt, idx) => (
+              <button 
+                key={idx} 
+                disabled={selectedFeedback !== ""} 
+                onClick={() => handleAnswer(opt)}
+              >
+                {opt.text}
+              </button>
+            ))}
+          </div>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+          {selectedFeedback && (
+            <div className="feedback-box">
+              <p>{selectedFeedback}</p>
+              <button onClick={handleNext}>Next Question</button>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
 }
-
-export default App
