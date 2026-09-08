@@ -1,20 +1,50 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { questions } from './questions';
 import './App.css';
+
+const TIMER_DEFAULT = 15;
 
 export default function App() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [lives, setLives] = useState(3);
+  const [timeLeft, setTimeLeft] = useState(TIMER_DEFAULT);
   const [selectedFeedback, setSelectedFeedback] = useState("");
   const [gameOver, setGameOver] = useState(false);
 
   const currentQ = questions[currentIndex];
 
+  // Timer logic using useEffect
+  useEffect(() => {
+    // Stop timer if feedback is active or game is over
+    if (selectedFeedback || gameOver) return;
+
+    // Handle time expiration
+    if (timeLeft === 0) {
+      setSelectedFeedback("⏰ Time's up! You ran out of time to respond.");
+      setLives((prevLives) => {
+        const updatedLives = prevLives - 1;
+        if (updatedLives <= 0) {
+          setGameOver(true);
+        }
+        return updatedLives;
+      });
+      return;
+    }
+
+    // Countdown interval
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => prev - 1);
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [timeLeft, selectedFeedback, gameOver]);
+
   const handleAnswer = (option) => {
     setSelectedFeedback(option.feedback);
     if (option.isCorrect) {
-      setScore(score + 10);
+      // Bonus points for quick answers
+      setScore(score + 10 + timeLeft);
     } else {
       setLives(lives - 1);
       if (lives - 1 <= 0) {
@@ -25,6 +55,7 @@ export default function App() {
 
   const handleNext = () => {
     setSelectedFeedback("");
+    setTimeLeft(TIMER_DEFAULT);
     if (currentIndex + 1 < questions.length) {
       setCurrentIndex(currentIndex + 1);
     } else {
@@ -36,6 +67,7 @@ export default function App() {
     setCurrentIndex(0);
     setScore(0);
     setLives(3);
+    setTimeLeft(TIMER_DEFAULT);
     setSelectedFeedback("");
     setGameOver(false);
   };
@@ -54,6 +86,9 @@ export default function App() {
         <div className="card">
           <div className="stats">
             <span>Score: {score}</span>
+            <span className={`timer ${timeLeft <= 5 ? 'warning' : ''}`}>
+              ⏱️ Time Left: {timeLeft}s
+            </span>
             <span>Lives: {"❤️".repeat(lives)}</span>
           </div>
 
