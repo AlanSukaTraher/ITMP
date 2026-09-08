@@ -1,5 +1,9 @@
 import { useState, useEffect } from 'react';
 import { questions } from './questions';
+import { useGameEngine } from './hooks/useGameEngine';
+import ModeSelect from './components/ModeSelect';
+import QuestionScreen from './components/QuestionScreen';
+import ResultsScreen from './components/ResultsScreen';
 import './App.css';
 
 const TIMER_DEFAULT = 15;
@@ -71,18 +75,15 @@ export default function App() {
     setSelectedFeedback("");
     setGameOver(false);
   };
+  const [mode, setMode] = useState(null); // null | 'scenario' | 'survival'
 
   return (
     <div className="game-container">
       <h1>Emergency Response Simulator</h1>
-      
-      {gameOver ? (
-        <div className="card">
-          <h2>Game Over!</h2>
-          <p>Your Final Score: {score}</p>
-          <button onClick={restartGame}>Play Again</button>
-        </div>
+      {mode === null ? (
+        <ModeSelect onSelect={setMode} />
       ) : (
+<<<<<<< HEAD
         <div className="card">
           <div className="stats">
             <span>Score: {score}</span>
@@ -113,7 +114,27 @@ export default function App() {
             </div>
           )}
         </div>
+=======
+        <GameRunner mode={mode} onExit={() => setMode(null)} />
+>>>>>>> feature/timer-logic
       )}
     </div>
   );
+}
+
+function GameRunner({ mode, onExit }) {
+  const engine = useGameEngine({ questions, mode });
+
+  if (engine.gameOver) {
+    return (
+      <ResultsScreen
+        score={engine.score}
+        accuracy={engine.accuracy}
+        onRestart={engine.restart}
+        onMenu={onExit}
+      />
+    );
+  }
+
+  return <QuestionScreen engine={engine} mode={mode} />;
 }
