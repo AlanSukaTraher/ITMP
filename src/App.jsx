@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { questions } from './questions';
+import { scenarios as questions } from './data/scenarios';
 import { useGameEngine } from './hooks/useGameEngine';
 import ModeSelect from './components/ModeSelect';
 import QuestionScreen from './components/QuestionScreen';
@@ -7,7 +7,7 @@ import ResultsScreen from './components/ResultsScreen';
 import './App.css';
 
 export default function App() {
-  const [mode, setMode] = useState(null); // null | 'scenario' | 'survival'
+  const [mode, setMode] = useState(null); // null | 'scenario' | 'timed' | 'survival'
 
   return (
     <div className="game-container">

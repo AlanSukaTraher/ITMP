@@ -5,6 +5,8 @@ export default function QuestionScreen({ engine, mode }) {
     totalQuestions,
     score,
     lives,
+    timeLeft,
+    isTimed,
     selectedOption,
     isFinalPrompt,
     answer,
@@ -18,10 +20,15 @@ export default function QuestionScreen({ engine, mode }) {
       <div className="stats">
         <span>
           Question {questionNumber}
-          {mode === 'scenario' ? ` / ${totalQuestions}` : ''}
+          {mode !== 'survival' ? ` / ${totalQuestions}` : ''}
         </span>
         <span>Score: {score}</span>
         {lives !== null && <span>Lives: {'❤️'.repeat(lives)}</span>}
+        {isTimed && (
+          <span className={`timer ${timeLeft <= 5 ? 'warning' : ''}`}>
+            ⏱️ Time Left: {timeLeft}s
+          </span>
+        )}
       </div>
 
       <h2>{currentQuestion.scenario}</h2>
