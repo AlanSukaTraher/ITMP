@@ -1,0 +1,34 @@
+{
+  "topic": "first_aid",
+  "topicLabel": "Basic First Aid",
+  "scenarios": [
+    {
+      "id": "first_aid_01",
+      "title": "Unresponsive Collapse",
+      "description": "Someone near you suddenly collapses and is unresponsive. What is your very first step?",
+      "choices": [
+        {
+          "id": "first_aid_01_a",
+          "text": "Check for scene safety and call emergency services",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct! Always ensure the area is safe first and call for professional help."
+        },
+        {
+          "id": "first_aid_01_b",
+          "text": "Give them a glass of water immediately",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Giving water to an unconscious person presents a severe choking hazard."
+        },
+        {
+          "id": "first_aid_01_c",
+          "text": "Wait 10 minutes to see if they wake up",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Immediate action is crucial in medical emergencies."
+        }
+      ]
+    }
+  ]
+}

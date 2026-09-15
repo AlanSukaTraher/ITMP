@@ -1,10 +1,16 @@
-import { useState, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
-// Shared quiz logic for both:
-// - Scenario Mode: fixed order, no lives, ends after the last question.
+const TIMER_DEFAULT = 15;
+
+// Shared quiz logic for all three modes:
+// - Scenario Mode: fixed order, no lives, no timer, ends after the last question.
+// - Timed Emergency Mode: fixed order like Scenario Mode, but each question has a
+//   15s countdown. Running out of time counts as a wrong answer. Correct answers
+//   score a speed bonus equal to the time remaining.
 // - Survival Mode: random order (no immediate repeats), 3 lives, ends at 0 lives.
 export function useGameEngine({ questions, mode }) {
   const isSurvival = mode === 'survival';
+  const isTimed = mode === 'timed';
 
   const pickIndex = useCallback((usedIndices) => {
     const allIndices = questions.map((_, i) => i);
@@ -22,6 +28,7 @@ export function useGameEngine({ questions, mode }) {
   const [selectedOption, setSelectedOption] = useState(null);
   const [pendingGameOver, setPendingGameOver] = useState(false);
   const [gameOver, setGameOver] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(isTimed ? TIMER_DEFAULT : null);
 
   const currentQuestion = questions[questionIndex];
   const questionNumber = answeredCount + 1;
@@ -32,7 +39,8 @@ export function useGameEngine({ questions, mode }) {
     setSelectedOption(option);
 
     if (option.isCorrect) {
-      setScore((prev) => prev + 10);
+      const speedBonus = isTimed ? timeLeft : 0;
+      setScore((prev) => prev + 10 + speedBonus);
       setCorrectCount((prev) => prev + 1);
     } else if (isSurvival) {
       setLives((prev) => {
@@ -43,11 +51,34 @@ export function useGameEngine({ questions, mode }) {
     }
   };
 
+  // Countdown for Timed Emergency Mode. Stops while feedback is showing or
+  // the game has ended; running it out submits an automatic wrong answer.
+  useEffect(() => {
+    if (!isTimed) return;
+    if (selectedOption || gameOver) return;
+
+    if (timeLeft === 0) {
+      const timeout = setTimeout(() => {
+        answer({
+          text: null,
+          isCorrect: false,
+          feedback: "⏰ Time's up! You ran out of time to respond.",
+        });
+      }, 0);
+      return () => clearTimeout(timeout);
+    }
+
+    const timer = setInterval(() => setTimeLeft((prev) => prev - 1), 1000);
+    return () => clearInterval(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [timeLeft, selectedOption, gameOver, isTimed]);
+
   // Game-over is only applied here, after the feedback for the
   // final/fatal answer has already been shown and the player clicks on.
   const advance = () => {
     setSelectedOption(null);
     setAnsweredCount((prev) => prev + 1);
+    if (isTimed) setTimeLeft(TIMER_DEFAULT);
 
     if (isFinalPrompt) {
       setGameOver(true);
@@ -74,6 +105,7 @@ export function useGameEngine({ questions, mode }) {
     setSelectedOption(null);
     setPendingGameOver(false);
     setGameOver(false);
+    setTimeLeft(isTimed ? TIMER_DEFAULT : null);
   };
 
   const accuracy = answeredCount > 0 ? Math.round((correctCount / answeredCount) * 100) : 0;
@@ -84,6 +116,8 @@ export function useGameEngine({ questions, mode }) {
     totalQuestions: questions.length,
     score,
     lives,
+    timeLeft,
+    isTimed,
     selectedOption,
     gameOver,
     isFinalPrompt,
