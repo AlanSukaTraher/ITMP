@@ -1,0 +1,90 @@
+{
+  "topic": "earthquake",
+  "topicLabel": "Earthquake",
+  "scenarios": [
+    {
+      "id": "earthquake_01",
+      "title": "Shaking Starts Indoors",
+      "description": "You're at your desk when the ground suddenly starts shaking hard. There's a sturdy table nearby.",
+      "choices": [
+        {
+          "id": "earthquake_01_a",
+          "text": "Drop to your hands and knees, get under the table, and hold on",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Drop, Cover, and Hold On is the action recommended by emergency experts worldwide. A sturdy table protects you from falling objects, which cause most earthquake injuries."
+        },
+        {
+          "id": "earthquake_01_b",
+          "text": "Run outside as fast as possible",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Running during shaking is how most injuries happen, and the area near exterior walls and windows is actually the most dangerous place in a building."
+        },
+        {
+          "id": "earthquake_01_c",
+          "text": "Stand in a doorway for protection",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "This is an outdated myth. In modern buildings, doorways are no stronger than the rest of the structure and won't protect you from falling objects."
+        }
+      ]
+    },
+    {
+      "id": "earthquake_02",
+      "title": "Caught Outside",
+      "description": "You're walking outside near some buildings and power poles when the ground starts shaking violently.",
+      "choices": [
+        {
+          "id": "earthquake_02_a",
+          "text": "Move to an open area away from buildings, trees, and power lines",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. If you're already outside, staying outside and moving to open ground protects you from falling debris, glass, and collapsing structures."
+        },
+        {
+          "id": "earthquake_02_b",
+          "text": "Run into the nearest building for shelter",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Running toward a building during shaking puts you at risk from falling facades, glass, and debris right as the structure is most unstable."
+        },
+        {
+          "id": "earthquake_02_c",
+          "text": "Stand still exactly where you are, even next to a power pole",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Power poles and lines can fall during strong shaking. Move a short distance away from them and other tall hazards while staying outside."
+        }
+      ]
+    },
+    {
+      "id": "earthquake_03",
+      "title": "Driving During an Earthquake",
+      "description": "You're driving when you realize the shaking you feel is an earthquake, not a flat tire.",
+      "choices": [
+        {
+          "id": "earthquake_03_a",
+          "text": "Pull over away from buildings, bridges, and overpasses, and stay in the car",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Stopping in a clear area away from structures that could collapse, and staying inside the vehicle, is the safest option while driving."
+        },
+        {
+          "id": "earthquake_03_b",
+          "text": "Keep driving to get home as quickly as possible",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Driving during strong shaking is hard to control safely, and roads or bridges may be damaged. It's safer to stop in a clear spot until the shaking ends."
+        },
+        {
+          "id": "earthquake_03_c",
+          "text": "Stop directly underneath an overpass to wait it out",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Overpasses and bridges are at higher risk of structural damage or collapse during an earthquake. Never stop directly beneath one."
+        }
+      ]
+    }
+  ]
+}

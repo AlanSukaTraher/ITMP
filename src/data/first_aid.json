@@ -1,32 +1,88 @@
 {
   "topic": "first_aid",
-  "topicLabel": "Basic First Aid",
+  "topicLabel": "First Aid",
   "scenarios": [
     {
       "id": "first_aid_01",
-      "title": "Unresponsive Collapse",
-      "description": "Someone near you suddenly collapses and is unresponsive. What is your very first step?",
+      "title": "Someone Is Choking",
+      "description": "A friend at dinner suddenly can't speak or cough, and is clutching their throat. Their face is turning red.",
       "choices": [
         {
           "id": "first_aid_01_a",
-          "text": "Check for scene safety and call emergency services",
+          "text": "Perform abdominal thrusts (the Heimlich maneuver)",
           "correct": true,
           "safetyImpact": 2,
-          "feedback": "Correct! Always ensure the area is safe first and call for professional help."
+          "feedback": "Correct. When someone can't speak, cough, or breathe, their airway is fully blocked. Abdominal thrusts above the navel can dislodge the object and clear the airway."
         },
         {
           "id": "first_aid_01_b",
-          "text": "Give them a glass of water immediately",
+          "text": "Give them water to help wash it down",
           "correct": false,
           "safetyImpact": -3,
-          "feedback": "Giving water to an unconscious person presents a severe choking hazard."
+          "feedback": "Giving liquid to someone with a blocked airway can make things worse and won't clear the obstruction. Only act on the airway itself, not by adding more to swallow."
         },
         {
           "id": "first_aid_01_c",
-          "text": "Wait 10 minutes to see if they wake up",
+          "text": "Wait to see if they can clear it on their own",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "A fully blocked airway cuts off oxygen within minutes. If someone can't speak, cough, or breathe, act immediately rather than waiting."
+        }
+      ]
+    },
+    {
+      "id": "first_aid_02",
+      "title": "Severe Bleeding from a Cut",
+      "description": "Someone has cut their arm badly on broken glass, and blood is flowing steadily from the wound.",
+      "choices": [
+        {
+          "id": "first_aid_02_a",
+          "text": "Apply firm, steady direct pressure with a clean cloth",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Direct, continuous pressure is the most effective way to control bleeding while waiting for medical help. If blood soaks through, add another layer rather than removing the first."
+        },
+        {
+          "id": "first_aid_02_b",
+          "text": "Lift the cloth every minute to check if the bleeding stopped",
           "correct": false,
           "safetyImpact": -2,
-          "feedback": "Immediate action is crucial in medical emergencies."
+          "feedback": "Lifting the cloth breaks up any clot that's starting to form and restarts the bleeding. Keep steady pressure on and add more layers instead of checking underneath."
+        },
+        {
+          "id": "first_aid_02_c",
+          "text": "Rinse the wound thoroughly with water first",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Washing a severely bleeding wound can wash away clotting and increase blood loss. Focus on stopping the bleeding first; cleaning comes later with medical care."
+        }
+      ]
+    },
+    {
+      "id": "first_aid_03",
+      "title": "Kitchen Burn",
+      "description": "Someone accidentally touches a hot pan and burns their hand. The skin is red and starting to sting badly.",
+      "choices": [
+        {
+          "id": "first_aid_03_a",
+          "text": "Run the burn under cool (not ice-cold) running water for about 20 minutes",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Cooling a burn under running water reduces skin temperature and limits damage. Twenty minutes is the generally recommended duration for minor burns."
+        },
+        {
+          "id": "first_aid_03_b",
+          "text": "Apply butter or oil to soothe the burn",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Butter, oil, and toothpaste trap heat against the skin and can worsen the burn and increase infection risk. Cool running water is the correct first response."
+        },
+        {
+          "id": "first_aid_03_c",
+          "text": "Cover the burn immediately with a tight bandage",
+          "correct": false,
+          "safetyImpact": -1,
+          "feedback": "Cooling the burn should come first. Wrapping it tightly right away traps heat and can increase swelling and pain before the area has had a chance to cool."
         }
       ]
     }

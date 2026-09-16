@@ -1,9 +1,10 @@
 import fire from './fire.json';
 import flood from './flood.json';
+import storm from './storm.json';
+import earthquake from './earthquake.json';
 import firstAid from './first_aid.json';
 
-// Add new topic files here (storm.json, earthquake.json) as content is written.
-const topics = [fire, flood, firstAid];
+const topics = [fire, flood, storm, earthquake, firstAid];
 
 // Flattens the structured per-topic JSON (title/description/choices) into
 // the flat { scenario, options } shape QuestionScreen and useGameEngine expect.
