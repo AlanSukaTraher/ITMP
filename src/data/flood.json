@@ -1,0 +1,90 @@
+{
+  "topic": "flood",
+  "topicLabel": "Flash Flood",
+  "scenarios": [
+    {
+      "id": "flood_01",
+      "title": "Flooded Road Ahead",
+      "description": "You're driving home and the road ahead is covered in fast-moving water. It doesn't look too deep from here.",
+      "choices": [
+        {
+          "id": "flood_01_a",
+          "text": "Drive through slowly, staying in the middle of the road",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Just a foot of moving water can sweep a car away, and depth is hard to judge from the driver's seat. The safest rule is: Turn Around, Don't Drown."
+        },
+        {
+          "id": "flood_01_b",
+          "text": "Turn around and find another route",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Never drive through floodwater, even if it looks shallow. Roads can be washed out underneath, and cars can stall or float away in seconds."
+        },
+        {
+          "id": "flood_01_c",
+          "text": "Get out and check the water depth on foot first",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Walking into moving floodwater is just as risky as driving through it. A few inches can knock an adult off their feet. Avoid entering it entirely."
+        }
+      ]
+    },
+    {
+      "id": "flood_02",
+      "title": "Rising Water at Home",
+      "description": "Heavy rain has caused water to start entering the ground floor of your house. It's rising steadily.",
+      "choices": [
+        {
+          "id": "flood_02_a",
+          "text": "Go down to the basement to check on your belongings",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Basements fill first and fastest during a flood, and exits can be cut off. Never head toward low ground once water is entering the building."
+        },
+        {
+          "id": "flood_02_b",
+          "text": "Move to the highest floor and turn off utilities if it's safe to do so",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Getting to higher ground protects you from rising water, and switching off gas and electricity (if safely reachable) reduces fire and shock risks."
+        },
+        {
+          "id": "flood_02_c",
+          "text": "Stay on the ground floor and wait to see if the water stops rising",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Waiting on a floor that's already flooding wastes time you may need to reach safety. Move to higher ground as soon as water starts entering the home."
+        }
+      ]
+    },
+    {
+      "id": "flood_03",
+      "title": "Downed Power Line Near Water",
+      "description": "You're evacuating on foot and notice a fallen power line lying partly in a pool of standing water ahead.",
+      "choices": [
+        {
+          "id": "flood_03_a",
+          "text": "Walk around it, staying as far from the water as possible",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Standing water near downed lines can be electrified. Keeping a wide distance from both the line and any water it touches is the safest choice."
+        },
+        {
+          "id": "flood_03_b",
+          "text": "Step carefully through the shallow edge of the water to pass quickly",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Water in contact with a downed power line can carry a lethal electric current. Never touch or walk through water near fallen lines, no matter how shallow."
+        },
+        {
+          "id": "flood_03_c",
+          "text": "Move the power line out of the way with a nearby stick",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Power lines can carry a lethal charge even through objects like sticks. Never touch a downed line directly or indirectly. Keep your distance and report it."
+        }
+      ]
+    }
+  ]
+}

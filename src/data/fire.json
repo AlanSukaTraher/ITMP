@@ -1,0 +1,90 @@
+{
+  "topic": "fire",
+  "topicLabel": "Fire in a Building",
+  "scenarios": [
+    {
+      "id": "fire_01",
+      "title": "Smoke Under the Door",
+      "description": "You're in your office and you smell smoke. There's no alarm yet, but smoke is drifting in from under the door to the hallway.",
+      "choices": [
+        {
+          "id": "fire_01_a",
+          "text": "Open the door quickly and look into the hallway",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Never open a door without checking it first. If fire is on the other side, a sudden rush of air can cause a dangerous flashover. Always check before opening."
+        },
+        {
+          "id": "fire_01_b",
+          "text": "Feel the door and handle with the back of your hand before opening",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Checking a door's heat before opening tells you if fire is close on the other side. If it's hot, keep it shut and find another way out."
+        },
+        {
+          "id": "fire_01_c",
+          "text": "Ignore it and keep working, assuming it's nothing",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Smoke should never be ignored. It spreads fast and is more dangerous than the flames themselves. Treat any smoke as a sign to act immediately."
+        }
+      ]
+    },
+    {
+      "id": "fire_02",
+      "title": "The Alarm Sounds",
+      "description": "The fire alarm goes off. You're on the 6th floor and need to get outside. The elevator is right next to you.",
+      "choices": [
+        {
+          "id": "fire_02_a",
+          "text": "Take the elevator down since it's faster",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Elevators can stop working or trap you between floors during a fire, and shafts can fill with smoke. Always use the stairs during a fire evacuation."
+        },
+        {
+          "id": "fire_02_b",
+          "text": "Use the stairwell and head to the nearest exit",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Stairwells are built to stay safer during fires. Knowing at least two exit routes in advance makes this decision automatic under pressure."
+        },
+        {
+          "id": "fire_02_c",
+          "text": "Stay at your desk and wait for someone to give instructions",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Waiting wastes critical time. Once an alarm sounds, treat it as real and begin evacuating right away rather than waiting for confirmation."
+        }
+      ]
+    },
+    {
+      "id": "fire_03",
+      "title": "Smoke-Filled Corridor",
+      "description": "You open a safe exit door and find the corridor filling with thick smoke. You need to reach the stairwell at the end of the hall.",
+      "choices": [
+        {
+          "id": "fire_03_a",
+          "text": "Stay low and crawl toward the stairwell",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Smoke rises, so the air near the floor stays clearer and cooler for longer. Staying low reduces how much smoke you breathe in."
+        },
+        {
+          "id": "fire_03_b",
+          "text": "Run through the corridor standing upright to save time",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Standing up puts your face directly in the thickest, most toxic smoke. Smoke is the leading cause of fire-related deaths, so staying low matters more than speed."
+        },
+        {
+          "id": "fire_03_c",
+          "text": "Turn back and shelter in your office instead",
+          "correct": false,
+          "safetyImpact": -1,
+          "feedback": "Sheltering in place is only advised when instructed by officials or when exits are fully blocked. Here, a viable escape route still exists, so retreating wastes it."
+        }
+      ]
+    }
+  ]
+}

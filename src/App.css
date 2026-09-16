@@ -181,4 +181,11 @@
     right: 0;
     border-right-color: var(--border);
   }
+  .timer {
+  font-weight: 600;
+}
+
+.timer.warning {
+  color: #e04b4b;
+}
 }

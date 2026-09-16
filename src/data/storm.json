@@ -1,0 +1,90 @@
+{
+  "topic": "storm",
+  "topicLabel": "Severe Storm / Tornado",
+  "scenarios": [
+    {
+      "id": "storm_01",
+      "title": "Tornado Warning at Home",
+      "description": "A tornado warning has just been issued for your area. You're at home and need to take shelter immediately.",
+      "choices": [
+        {
+          "id": "storm_01_a",
+          "text": "Go to a small interior room with no windows on the lowest floor",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. A small windowless room like a bathroom or closet on the lowest floor offers the best protection from flying debris and high winds."
+        },
+        {
+          "id": "storm_01_b",
+          "text": "Watch the storm from a window to see how close it is",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Flying debris causes most tornado injuries and deaths, and windows can shatter violently. Always move away from windows during a tornado warning."
+        },
+        {
+          "id": "storm_01_c",
+          "text": "Go to the largest room in the house, like the living room",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Large rooms often have wide roof spans that are more likely to collapse. Small, windowless rooms with sturdy walls hold up far better."
+        }
+      ]
+    },
+    {
+      "id": "storm_02",
+      "title": "Caught Outdoors",
+      "description": "You're outside on a walking trail when you spot a tornado forming in the distance, and there's no sturdy building nearby.",
+      "choices": [
+        {
+          "id": "storm_02_a",
+          "text": "Lie flat in a low ditch or depression and cover your head",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. When no sturdy shelter is available, getting as low as possible and covering your head and neck reduces the risk of injury from debris and wind."
+        },
+        {
+          "id": "storm_02_b",
+          "text": "Run toward the nearest large tree for cover",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Trees can be uprooted or have branches torn off in high winds, making them dangerous, not protective. Stay away from trees during a tornado."
+        },
+        {
+          "id": "storm_02_c",
+          "text": "Try to outrun the tornado on foot",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Tornadoes can move unpredictably and far faster than a person can run. Seeking low ground nearby is safer than trying to outrun it."
+        }
+      ]
+    },
+    {
+      "id": "storm_03",
+      "title": "Driving When a Tornado Appears",
+      "description": "You're driving and spot a tornado in the distance, moving toward the road ahead. There's an overpass just up the highway.",
+      "choices": [
+        {
+          "id": "storm_03_a",
+          "text": "Pull over away from traffic, stay in the car with your seatbelt on, and duck below the windows",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. If you can't safely drive away from the tornado's path, staying belted in your car with your head below window level is safer than exposed alternatives."
+        },
+        {
+          "id": "storm_03_b",
+          "text": "Drive to the overpass and shelter underneath it",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Overpasses can create dangerous wind tunnels and offer little real protection from flying debris. This is a common myth. Avoid sheltering under them."
+        },
+        {
+          "id": "storm_03_c",
+          "text": "Speed up to try to drive past the tornado's path",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Tornado paths are unpredictable, and vehicles are especially vulnerable to high winds. Racing toward or alongside it is extremely risky."
+        }
+      ]
+    }
+  ]
+}
