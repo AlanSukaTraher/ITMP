@@ -6,6 +6,18 @@ import firstAid from './first_aid.json';
 
 const topics = [fire, flood, storm, earthquake, firstAid];
 
+// Randomly reorders an array without mutating the original (Fisher-Yates shuffle).
+// This removes any fixed pattern in where the correct answer sits, so players
+// can't learn to guess a position instead of reasoning through the scenario.
+function shuffle(array) {
+  const arr = [...array];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
 // Flattens the structured per-topic JSON (title/description/choices) into
 // the flat { scenario, options } shape QuestionScreen and useGameEngine expect.
 // safetyImpact is carried through per-choice for when Survival Mode moves
@@ -17,11 +29,13 @@ export const scenarios = topics.flatMap((topicData) =>
     topicLabel: topicData.topicLabel,
     title: s.title,
     scenario: s.description,
-    options: s.choices.map((c) => ({
-      text: c.text,
-      isCorrect: c.correct,
-      feedback: c.feedback,
-      safetyImpact: c.safetyImpact,
-    })),
+    options: shuffle(
+      s.choices.map((c) => ({
+        text: c.text,
+        isCorrect: c.correct,
+        feedback: c.feedback,
+        safetyImpact: c.safetyImpact,
+      }))
+    ),
   }))
 );
