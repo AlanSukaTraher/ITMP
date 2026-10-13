@@ -10,7 +10,7 @@ export default function App() {
   const [mode, setMode] = useState(null); // null | 'scenario' | 'timed' | 'survival'
 
   return (
-    <div className="game-container">
+    <div className={`game-container${mode ? ' in-game' : ''}`}>
       <h1>Emergency Response Simulator</h1>
       {mode === null ? (
         <ModeSelect onSelect={setMode} />
@@ -29,6 +29,7 @@ function GameRunner({ mode, onExit }) {
       <ResultsScreen
         score={engine.score}
         accuracy={engine.accuracy}
+        mode={mode}
         onRestart={engine.restart}
         onMenu={onExit}
       />
