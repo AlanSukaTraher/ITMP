@@ -117,6 +117,7 @@ export function useGameEngine({ questions, mode }) {
     score,
     lives,
     timeLeft,
+    timerMax: TIMER_DEFAULT,
     isTimed,
     selectedOption,
     gameOver,
