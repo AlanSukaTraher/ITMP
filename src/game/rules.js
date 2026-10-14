@@ -6,8 +6,8 @@
 // Wrong choices drain the pool, correct choices restore it (up to the max).
 // Each choice carries its own `safetyImpact` in the scenario JSON
 // (correct = +2, wrong = -1 to -3).
-export const SAFETY_START = 6;
-export const SAFETY_MAX = 10;
+export const SAFETY_START = 5;
+export const SAFETY_MAX = 7;
 export const DEFAULT_CORRECT_IMPACT = 2; // used if a choice has no safetyImpact
 export const DEFAULT_WRONG_IMPACT = -2;
 export const TIMEOUT_IMPACT = -2; // running out of time counts as a wrong answer
@@ -41,7 +41,7 @@ export function starsFor(correct, total) {
 export const LEVEL_ORDER = ['fire', 'earthquake', 'flood', 'storm', 'first_aid'];
 
 // Stars needed on a level to unlock the next one.
-export const MIN_STARS_TO_UNLOCK = 1;
+export const MIN_STARS_TO_UNLOCK = 2;
 
 // `progress` maps level id -> best star rating, e.g. { fire: 3, earthquake: 1 }.
 // `order` is the list of level ids actually available, in play order.
