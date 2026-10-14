@@ -531,3 +531,186 @@ button {
     font-size: 32px;
   }
 }
+
+/* ---- Safety Points meter (Survival Mode) ---- */
+.safety {
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  display: flex;
+}
+.safety-label {
+  font-family: var(--display);
+  color: var(--ink-soft);
+  white-space: nowrap;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1;
+}
+.safety-track {
+  border: 2px solid var(--ink);
+  background: #fff;
+  border-radius: 4px;
+  flex: 1;
+  height: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.safety-fill {
+  background: var(--safe);
+  height: 100%;
+  transition:
+    width 0.4s ease,
+    background-color 0.4s ease;
+}
+.safety.is-caution .safety-fill {
+  background: var(--caution);
+}
+.safety.is-danger .safety-fill {
+  background: var(--danger);
+}
+/* Thin white dividers so each Safety Point reads as its own segment. */
+.safety-track:after {
+  content: "";
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0 calc(100% / var(--segments) - 2px),
+    #fff calc(100% / var(--segments) - 2px) calc(100% / var(--segments))
+  );
+  position: absolute;
+  inset: 0;
+}
+.safety-num {
+  text-align: right;
+  min-width: 3.4ch;
+  font-family: var(--display);
+  font-variant-numeric: tabular-nums;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+}
+.safety-max {
+  color: var(--ink-soft);
+  font-size: 20px;
+  font-weight: 600;
+}
+.safety.is-danger .safety-num {
+  color: var(--danger);
+}
+.feedback .impact {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+}
+.feedback .impact-up {
+  color: var(--safe);
+}
+.feedback .impact-down {
+  color: var(--danger);
+}
+
+/* ---- Levels and star ratings ---- */
+.level {
+  grid-template-columns: 88px 1fr auto;
+  --mode: var(--topic);
+}
+.level:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+.level:disabled .mode-icon {
+  background: var(--line);
+}
+.level:disabled:hover .mode-name {
+  text-decoration: none;
+}
+.stars {
+  letter-spacing: 3px;
+  font-size: 44px;
+  line-height: 1;
+}
+.star {
+  color: #fff;
+  -webkit-text-stroke: 1.5px var(--line);
+}
+.star.on {
+  color: var(--caution);
+  -webkit-text-stroke: 1.5px var(--ink);
+}
+.level-stars {
+  align-self: center;
+  padding-right: 18px;
+  font-size: 30px;
+}
+.level-actions {
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+  display: flex;
+}
+
+/* ---- Results: stars, timing, unlock message ---- */
+.result-rating {
+  border-bottom: 2px solid var(--line);
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4px 16px;
+  padding: 14px 22px;
+  display: flex;
+}
+.result-level {
+  font-family: var(--display);
+  color: var(--ink-soft);
+  font-size: 24px;
+  font-weight: 600;
+}
+.result-stats.three {
+  grid-template-columns: repeat(3, 1fr);
+}
+.result-detail {
+  color: var(--ink-soft);
+  border-bottom: 2px solid var(--line);
+  padding: 10px 22px 14px;
+  font-size: 18px;
+}
+.result-unlock {
+  max-width: 60ch;
+  padding: 8px 22px 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+@media (width<=560px) {
+  .safety {
+    gap: 8px;
+  }
+  .safety-label {
+    font-size: 18px;
+  }
+  .level {
+    grid-template-columns: 68px 1fr auto;
+  }
+  .level-stars {
+    padding-right: 12px;
+    font-size: 24px;
+  }
+  .stars {
+    font-size: 38px;
+  }
+  .result-stats.three .result-stat {
+    padding: 16px 12px 14px;
+  }
+  .result-stats.three .result-value {
+    font-size: 44px;
+  }
+  .result-rating,
+  .result-detail {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .result-unlock {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}

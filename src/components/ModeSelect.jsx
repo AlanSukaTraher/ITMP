@@ -3,19 +3,19 @@ const MODES = [
     id: 'scenario',
     icon: '📋',
     name: 'Scenario Mode',
-    desc: 'Work through every scenario in order. No timer.',
+    desc: 'Play each emergency as a level. Earn stars to unlock the next one.',
   },
   {
     id: 'timed',
     icon: '⏱️',
     name: 'Timed Emergency Mode',
-    desc: '15 seconds per question. Faster correct answers earn bonus points.',
+    desc: 'Same levels with a 15 second countdown. Faster correct answers earn bonus points.',
   },
   {
     id: 'survival',
-    icon: '❤️',
+    icon: '🛡️',
     name: 'Survival Mode',
-    desc: 'Random scenarios until you lose all 3 lives.',
+    desc: 'Random scenarios. Wrong choices drain your Safety Points, correct ones restore them.',
   },
 ];
 
