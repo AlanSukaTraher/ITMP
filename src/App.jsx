@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useGameEngine } from './hooks/useGameEngine';
 import { useProgress } from './hooks/useProgress';
 import { LEVELS, ALL_SCENARIOS } from './game/levels';
@@ -7,6 +7,8 @@ import ModeSelect from './components/ModeSelect';
 import LevelSelect from './components/LevelSelect';
 import QuestionScreen from './components/QuestionScreen';
 import ResultsScreen from './components/ResultsScreen';
+import SoundToggle from './components/SoundToggle';
+import { playSound, setMusicWanted } from './audio/sound';
 import './App.css';
 
 export default function App() {
@@ -26,8 +28,26 @@ export default function App() {
   };
   const backToMenu = () => chooseMode(null);
 
+  // Lobby music plays on the menu and level screens, and stops during a game.
+  useEffect(() => {
+    setMusicWanted(!inGame);
+  }, [inGame]);
+
+  // One click sound for every button. Answer buttons have their own sounds.
+  useEffect(() => {
+    const onClick = (event) => {
+      const button = event.target.closest?.('button');
+      if (!button || button.disabled) return;
+      if (button.classList.contains('option') || button.classList.contains('sound-toggle')) return;
+      playSound('click');
+    };
+    document.addEventListener('click', onClick);
+    return () => document.removeEventListener('click', onClick);
+  }, []);
+
   return (
     <div className={`game-container${inGame ? ' in-game' : ''}`}>
+      <SoundToggle />
       <h1>Emergency Response Simulator</h1>
       {mode === null && <ModeSelect onSelect={chooseMode} />}
       {usesLevels && level === null && (

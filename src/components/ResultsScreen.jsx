@@ -1,5 +1,7 @@
 import { formatDuration, MIN_STARS_TO_UNLOCK } from '../game/rules';
+import { useEffect } from 'react';
 import { Icon, StarRow } from './Icons';
+import { playSound } from '../audio/sound';
 
 function resultTone(accuracy) {
   if (accuracy >= 80) {
@@ -51,6 +53,15 @@ export default function ResultsScreen({
   const { tone, icon, message: toneMessage } = resultTone(accuracy);
   // Achievement badge: all 3 stars on a level, or every Survival emergency cleared.
   const earnedMedal = stars === 3 || outcome === 'cleared';
+
+  // Result jingle once on arrival: win when the level was passed or Survival was
+  // cleared, losing sound otherwise. The power-up chime follows when a medal is earned.
+  useEffect(() => {
+    const won = isLevel ? passed : outcome === 'cleared';
+    playSound(won ? 'levelWin' : 'wrong');
+    if (earnedMedal) playSound('powerUp', { delayMs: 2700 });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const isLevel = stars !== null;
 
   let heading;
