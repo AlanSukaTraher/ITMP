@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { TOPIC_ICONS } from '../game/levels';
 import { Icon } from './Icons';
+import { playSound } from '../audio/sound';
 
 const OPTION_KEYS = ['A', 'B', 'C', 'D', 'E', 'F'];
 
@@ -34,6 +35,11 @@ export default function QuestionScreen({ engine }) {
   // Bring the feedback box into view after answering (matters on phones).
   useEffect(() => {
     if (selectedOption) feedbackRef.current?.scrollIntoView({ block: 'nearest' });
+  }, [selectedOption]);
+
+  // Sound for the answer just given (a timeout counts as wrong).
+  useEffect(() => {
+    if (selectedOption) playSound(selectedOption.isCorrect ? 'correct' : 'wrong');
   }, [selectedOption]);
 
   if (!currentQuestion) return null;
