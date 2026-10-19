@@ -1,19 +1,21 @@
+import { Icon } from './Icons';
+
 const MODES = [
   {
     id: 'scenario',
-    icon: '📋',
+    icon: 'scenario',
     name: 'Scenario Mode',
     desc: 'Play each emergency as a level. Earn stars to unlock the next one.',
   },
   {
     id: 'timed',
-    icon: '⏱️',
+    icon: 'timed',
     name: 'Timed Emergency Mode',
     desc: 'Same levels with a 15 second countdown. Faster correct answers earn bonus points.',
   },
   {
     id: 'survival',
-    icon: '🛡️',
+    icon: 'survival',
     name: 'Survival Mode',
     desc: 'Random scenarios. Wrong choices drain your Safety Points, correct ones restore them.',
   },
@@ -35,7 +37,9 @@ export default function ModeSelect({ onSelect }) {
             onClick={() => onSelect(m.id)}
           >
             <span className="mode-icon" aria-hidden="true">
-              <span className="glyph">{m.icon}</span>
+              <span className="glyph">
+                <Icon name={m.icon} />
+              </span>
             </span>
             <span className="mode-text">
               <span className="mode-name">{m.name}</span>

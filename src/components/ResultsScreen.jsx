@@ -1,4 +1,5 @@
 import { formatDuration, MIN_STARS_TO_UNLOCK } from '../game/rules';
+import { Icon, StarRow } from './Icons';
 
 function resultTone(accuracy) {
   if (accuracy >= 80) {
@@ -48,6 +49,8 @@ export default function ResultsScreen({
   onMenu,
 }) {
   const { tone, icon, message: toneMessage } = resultTone(accuracy);
+  // Achievement badge: all 3 stars on a level, or every Survival emergency cleared.
+  const earnedMedal = stars === 3 || outcome === 'cleared';
   const isLevel = stars !== null;
 
   let heading;
@@ -66,20 +69,14 @@ export default function ResultsScreen({
     <section className={`placard ${tone}`}>
       <div className="placard-head">
         <span className="glyph" aria-hidden="true">
-          {icon}
+          {earnedMedal ? <Icon name="medal" /> : icon}
         </span>
         <h2 className="placard-topic">{heading}</h2>
       </div>
 
       {isLevel && (
         <div className="result-rating">
-          <span className="stars" role="img" aria-label={`${stars} out of 3 stars`}>
-            {[1, 2, 3].map((n) => (
-              <span key={n} className={n <= stars ? 'star on' : 'star'}>
-                ★
-              </span>
-            ))}
-          </span>
+          <StarRow count={stars} />
           <span className="result-level">{levelLabel}</span>
         </div>
       )}

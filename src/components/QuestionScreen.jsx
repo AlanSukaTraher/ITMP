@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { TOPIC_ICONS } from '../game/levels';
+import { Icon } from './Icons';
 
 const OPTION_KEYS = ['A', 'B', 'C', 'D', 'E', 'F'];
 
@@ -89,7 +90,11 @@ export default function QuestionScreen({ engine }) {
       <section className="placard" data-topic={currentQuestion.topic}>
         <div className="placard-head">
           <span className="glyph" aria-hidden="true">
-            {TOPIC_ICONS[currentQuestion.topic] ?? '⚠️'}
+            {TOPIC_ICONS[currentQuestion.topic] ? (
+              <Icon name={TOPIC_ICONS[currentQuestion.topic]} />
+            ) : (
+              '⚠️'
+            )}
           </span>
           <span className="placard-topic">{currentQuestion.topicLabel}</span>
         </div>

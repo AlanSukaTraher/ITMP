@@ -1,17 +1,6 @@
 import { isUnlocked, MIN_STARS_TO_UNLOCK } from '../game/rules';
 import { LEVEL_IDS } from '../game/levels';
-
-function Stars({ count }) {
-  return (
-    <span className="stars level-stars" role="img" aria-label={`${count} out of 3 stars`}>
-      {[1, 2, 3].map((n) => (
-        <span key={n} className={n <= count ? 'star on' : 'star'}>
-          ★
-        </span>
-      ))}
-    </span>
-  );
-}
+import { Icon, StarRow } from './Icons';
 
 export default function LevelSelect({ mode, levels, progress, onSelect, onBack, onReset }) {
   const plural = MIN_STARS_TO_UNLOCK === 1 ? '' : 's';
@@ -42,7 +31,9 @@ export default function LevelSelect({ mode, levels, progress, onSelect, onBack, 
               onClick={() => onSelect(level.id)}
             >
               <span className="mode-icon" aria-hidden="true">
-                <span className="glyph">{unlocked ? level.icon : '🔒'}</span>
+                <span className="glyph">
+                  {unlocked ? <Icon name={level.icon} /> : '🔒'}
+                </span>
               </span>
               <span className="mode-text">
                 <span className="mode-name">{level.label}</span>
@@ -52,7 +43,7 @@ export default function LevelSelect({ mode, levels, progress, onSelect, onBack, 
                     : `Locked. Earn ${MIN_STARS_TO_UNLOCK} star${plural} on ${previous.label} first.`}
                 </span>
               </span>
-              {unlocked && <Stars count={stars} />}
+              {unlocked && <StarRow count={stars} className="level-stars" />}
             </button>
           );
         })}

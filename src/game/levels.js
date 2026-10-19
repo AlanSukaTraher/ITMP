@@ -1,13 +1,13 @@
 import { scenarios } from '../data/scenarios';
 import { LEVEL_ORDER } from './rules';
 
-// Topic icons shown on the level cards and scenario headers.
+// Topic icons are image names resolved by <Icon /> (see components/Icons.jsx).
 export const TOPIC_ICONS = {
-  fire: '🔥',
-  flood: '🌊',
-  storm: '🌪️',
-  earthquake: '🏚️',
-  first_aid: '🩹',
+  fire: 'fire',
+  flood: 'flood',
+  storm: 'storm',
+  earthquake: 'earthquake',
+  first_aid: 'first_aid',
 };
 
 export const ALL_SCENARIOS = scenarios;
@@ -19,7 +19,7 @@ export const LEVELS = LEVEL_ORDER.map((id) => {
   return {
     id,
     label: list[0]?.topicLabel ?? id,
-    icon: TOPIC_ICONS[id] ?? '⚠️',
+    icon: TOPIC_ICONS[id] ?? null,
     scenarios: list,
   };
 }).filter((level) => level.scenarios.length > 0);
