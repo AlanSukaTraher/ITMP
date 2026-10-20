@@ -85,6 +85,90 @@
           "feedback": "Cooling the burn should come first. Wrapping it tightly right away traps heat and can increase swelling and pain before the area has had a chance to cool."
         }
       ]
+    },
+    {
+      "id": "first_aid_04",
+      "title": "Collapsed and Not Breathing",
+      "description": "A person suddenly collapses in front of you. They do not respond when you tap them and are not breathing normally.",
+      "choices": [
+        {
+          "id": "first_aid_04_a",
+          "text": "Wait for an ambulance without doing anything",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Every minute without circulation reduces survival chances. Start chest compressions while help is on the way."
+        },
+        {
+          "id": "first_aid_04_b",
+          "text": "Call emergency services and start hard, fast chest compressions in the centre of the chest",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Call for help, then push hard and fast in the centre of the chest to keep blood flowing until help or a defibrillator arrives."
+        },
+        {
+          "id": "first_aid_04_c",
+          "text": "Give them water and sit them upright",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "An unresponsive person cannot swallow safely and needs chest compressions, not drinks."
+        }
+      ]
+    },
+    {
+      "id": "first_aid_05",
+      "title": "Nosebleed",
+      "description": "A friend gets a nosebleed that keeps running down their face.",
+      "choices": [
+        {
+          "id": "first_aid_05_a",
+          "text": "Tilt their head back so the blood goes down",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Tipping the head back can send blood down the throat and make them gag or vomit."
+        },
+        {
+          "id": "first_aid_05_b",
+          "text": "Have them lean forward and pinch the soft part of the nose for about 10 minutes",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Leaning forward and pinching the soft part of the nose helps the blood clot. Seek help if it does not stop."
+        },
+        {
+          "id": "first_aid_05_c",
+          "text": "Lie them flat and push tissue deep into the nostril",
+          "correct": false,
+          "safetyImpact": -1,
+          "feedback": "Lying flat and stuffing the nose are not recommended. Sit upright, lean forward and apply steady pressure instead."
+        }
+      ]
+    },
+    {
+      "id": "first_aid_06",
+      "title": "Someone Having a Seizure",
+      "description": "A person falls to the ground and starts having a seizure with shaking movements.",
+      "choices": [
+        {
+          "id": "first_aid_06_a",
+          "text": "Hold them down firmly to stop the shaking",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Restraining someone can injure them. Let the seizure run its course and keep them safe."
+        },
+        {
+          "id": "first_aid_06_b",
+          "text": "Clear the area, cushion their head, time it, and call for help if it lasts more than 5 minutes",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Protect them from injury, time the seizure, and call emergency services if it is long, repeats, or they are injured. Place them on their side afterwards."
+        },
+        {
+          "id": "first_aid_06_c",
+          "text": "Put something in their mouth so they do not bite their tongue",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Never put anything in the mouth during a seizure. It can cause choking or break teeth."
+        }
+      ]
     }
   ]
 }

@@ -47,6 +47,28 @@ export function playSound(name, { delayMs = 0 } = {}) {
   else run();
 }
 
+// Short synthesised beep for the last seconds of Timed Mode (no audio file needed).
+let audioContext = null;
+export function playTick() {
+  if (muted) return;
+  try {
+    audioContext ??= new (window.AudioContext || window.webkitAudioContext)();
+    if (audioContext.state === 'suspended') audioContext.resume();
+    const osc = audioContext.createOscillator();
+    const gain = audioContext.createGain();
+    const now = audioContext.currentTime;
+    osc.type = 'square';
+    osc.frequency.value = 880;
+    gain.gain.setValueAtTime(0.06, now);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.09);
+    osc.connect(gain).connect(audioContext.destination);
+    osc.start(now);
+    osc.stop(now + 0.1);
+  } catch {
+    // Web Audio unavailable: the visual warning still shows.
+  }
+}
+
 function getMusic() {
   if (!music) {
     music = new Audio(musicLobby);

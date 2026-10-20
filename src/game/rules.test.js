@@ -13,6 +13,7 @@ import {
   nextLevelId,
   withBestStars,
   formatDuration,
+  isBetterResult,
 } from './rules.js';
 
 test('Safety Points: wrong answers drain, correct answers restore, clamped to 0..max', () => {
@@ -121,4 +122,12 @@ test('scenario JSON: every level topic exists and each scenario is well-formed',
       }
     }
   }
+});
+
+test('best results: higher score wins, equal score is decided by the faster time', () => {
+  assert.equal(isBetterResult(null, 10, 99), true);
+  assert.equal(isBetterResult({ score: 20, seconds: 30 }, 30, 99), true);
+  assert.equal(isBetterResult({ score: 30, seconds: 30 }, 20, 5), false);
+  assert.equal(isBetterResult({ score: 30, seconds: 30 }, 30, 25), true);
+  assert.equal(isBetterResult({ score: 30, seconds: 30 }, 30, 35), false);
 });

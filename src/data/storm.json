@@ -85,6 +85,90 @@
           "feedback": "Tornado paths are unpredictable, and vehicles are especially vulnerable to high winds. Racing toward or alongside it is extremely risky."
         }
       ]
+    },
+    {
+      "id": "storm_04",
+      "title": "Lightning in the Open",
+      "description": "You are hiking when a thunderstorm moves in. Lightning is striking nearby and you can hear thunder only seconds after each flash.",
+      "choices": [
+        {
+          "id": "storm_04_a",
+          "text": "Shelter under the tallest tree",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Lone tall trees attract lightning. Standing next to one puts you at risk of a strike."
+        },
+        {
+          "id": "storm_04_b",
+          "text": "Get inside a sturdy building or a hard-topped car as quickly as possible",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. If thunder is close, enclosed buildings and hard-topped vehicles are the safest places to be."
+        },
+        {
+          "id": "storm_04_c",
+          "text": "Stay on the open ridge so you can watch the storm",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "High, open ground is one of the most dangerous places in a lightning storm. Move to shelter as soon as you can."
+        }
+      ]
+    },
+    {
+      "id": "storm_05",
+      "title": "Power Cut and the Generator",
+      "description": "A storm knocks out power to your home for the night and you want to run a portable petrol generator.",
+      "choices": [
+        {
+          "id": "storm_05_a",
+          "text": "Run it in the garage with the door open",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Generators give off carbon monoxide, which can build up even with the garage door open and drift into the house."
+        },
+        {
+          "id": "storm_05_b",
+          "text": "Run it outside, well away from doors, windows and vents",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Keep a generator outdoors and far from openings so carbon monoxide cannot get into your home."
+        },
+        {
+          "id": "storm_05_c",
+          "text": "Run it in the basement where it is sheltered",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Carbon monoxide is odourless and can quickly build up in enclosed spaces like basements."
+        }
+      ]
+    },
+    {
+      "id": "storm_06",
+      "title": "Tornado Warning in a Mobile Home",
+      "description": "A tornado warning is issued while you are in a mobile home. A solid building is a few minutes away.",
+      "choices": [
+        {
+          "id": "storm_06_a",
+          "text": "Stay home and shelter in the bathtub",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Mobile homes can be tossed or destroyed in a tornado, even in a tub. They are not safe shelter."
+        },
+        {
+          "id": "storm_06_b",
+          "text": "Go to a sturdy building or a designated shelter now",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Leave a mobile home early for a solid building or storm shelter. It does not offer enough protection."
+        },
+        {
+          "id": "storm_06_c",
+          "text": "Open all the windows to equalise the pressure",
+          "correct": false,
+          "safetyImpact": -1,
+          "feedback": "This is a myth. Opening windows wastes time and does not protect the house. Use that time to reach shelter."
+        }
+      ]
     }
   ]
 }

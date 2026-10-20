@@ -44,6 +44,8 @@ export function useGameEngine({ questions, mode, onFinish }) {
   const [gameOver, setGameOver] = useState(false);
   const [timeLeft, setTimeLeft] = useState(isTimed ? TIMER_DEFAULT : null);
   const [elapsedMs, setElapsedMs] = useState(0);
+  // Every answer given, so the results screen can review the mistakes.
+  const [history, setHistory] = useState([]);
 
   // When the current question was shown; only time spent answering counts
   // (reading the feedback does not).
@@ -63,6 +65,20 @@ export function useGameEngine({ questions, mode, onFinish }) {
   const answer = (option) => {
     setSelectedOption(option);
     setElapsedMs((prev) => prev + (Date.now() - questionStartRef.current));
+    const right = currentQuestion.options.find((o) => o.isCorrect);
+    setHistory((prev) => [
+      ...prev,
+      {
+        id: currentQuestion.id,
+        title: currentQuestion.title,
+        topicLabel: currentQuestion.topicLabel,
+        correct: option.isCorrect,
+        timedOut: option.text === null,
+        chosenText: option.text,
+        correctText: right?.text ?? '',
+        explanation: (right?.feedback ?? '').replace(/^Correct[.!]\s*/, ''),
+      },
+    ]);
 
     if (option.isCorrect) {
       const speedBonus = isTimed ? timeLeft : 0;
@@ -148,6 +164,7 @@ export function useGameEngine({ questions, mode, onFinish }) {
     setGameOver(false);
     setTimeLeft(isTimed ? TIMER_DEFAULT : null);
     setElapsedMs(0);
+    setHistory([]);
     questionStartRef.current = Date.now();
   };
 
@@ -175,6 +192,7 @@ export function useGameEngine({ questions, mode, onFinish }) {
     accuracy,
     elapsedSeconds,
     avgSeconds,
+    history,
     answer,
     advance,
     restart,

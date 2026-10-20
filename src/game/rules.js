@@ -62,6 +62,14 @@ export function withBestStars(progress, levelId, stars) {
   return { ...progress, [levelId]: Math.max(progress[levelId] ?? 0, stars) };
 }
 
+// ---- Best results -------------------------------------------------------------
+// A new result beats the old one with a higher score, or the same score in less time.
+export function isBetterResult(previous, score, seconds) {
+  if (!previous) return true;
+  if (score !== previous.score) return score > previous.score;
+  return seconds < previous.seconds;
+}
+
 // ---- Timing summary ----------------------------------------------------------
 export function formatDuration(totalSeconds) {
   const s = Math.max(0, Math.round(totalSeconds));
