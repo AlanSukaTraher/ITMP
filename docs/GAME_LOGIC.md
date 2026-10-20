@@ -10,23 +10,23 @@ game can be tuned in one place.
 | Mode | What is played | Ends when |
 |---|---|---|
 | Scenario Mode | One level (one topic, 3 scenarios) in fixed order, no timer | The 3rd scenario is answered |
-| Timed Emergency Mode | Same levels, 15 second countdown per scenario | The 3rd scenario is answered |
-| Survival Mode | All 15 scenarios in random order, no repeats | Safety Points reach 0, or all 15 are answered |
+| Timed Emergency Mode | Same levels, but 3 short scenarios per topic from `timed.json`, each with its own countdown (8 to 12 seconds) | The 3rd scenario is answered |
+| Survival Mode | All 20 events from `survival_events.json` in random order, no repeats | Safety Points reach 0, or all 20 are answered |
 
 Scenario and Timed modes share one level progression. Survival Mode does not use levels.
 
 ## Scoring
 
 - Correct answer: **+10 points**.
-- Timed mode only: a correct answer also earns a **speed bonus equal to the seconds left** (0 to 15), so a correct answer is worth 10 to 25 points.
+- Timed mode only: a correct answer also earns a **speed bonus equal to the seconds left** (up to the scenario's time limit), so a correct answer is worth 10 to 22 points.
 - Wrong answers and timeouts score 0 (nothing is subtracted).
 - Accuracy = correct answers / scenarios answered, rounded to a whole percent.
 
 ## Timer (Timed Emergency Mode)
 
-- Each scenario starts at **15 seconds** and counts down once a second.
+- Each scenario starts at its own `timeLimit` (8, 10 or 12 seconds; 15 if none is set) and counts down once a second.
 - The countdown stops while the feedback is showing.
-- At 0 the question is answered automatically as **wrong** with the message "Time's up!".
+- At 0 the question is answered automatically as **wrong** with that scenario's `timeoutFeedback` (which names the correct action), or "Time's up!" if it has none.
 - The bar turns red at **5 seconds or less**.
 
 ## Safety Points (Survival Mode)
@@ -62,7 +62,7 @@ Based on the share of correct answers in a level:
 
 ## Timing summary
 
-Each scenario's response time is measured from when it is shown until the player answers (reading the feedback is not counted). The results screen shows total time and the average per scenario. A timed-out scenario counts as the full 15 seconds.
+Each scenario's response time is measured from when it is shown until the player answers (reading the feedback is not counted). The results screen shows total time and the average per scenario. A timed-out scenario counts as its full time limit.
 
 ## Where the code is
 
@@ -84,6 +84,6 @@ The proposal leaves these open. Each can be changed in `rules.js`.
 
 1. **Storm** is not in the proposal's level order (Fire, Earthquake, Flood, First Aid), so it was placed before First Aid.
 2. **Unlock rule:** the proposal says completing a level unlocks the next. It is implemented as "earn at least 1 star", so answering everything wrong does not unlock it.
-3. **Survival is finite:** the proposal says Survival continues until points hit zero, but a perfect player would never finish, so the run also ends after all 15 scenarios.
+3. **Survival is finite:** the proposal says Survival continues until points hit zero, but a perfect player would never finish, so the run also ends after all 20 events.
 4. **Survival ignores levels:** it uses all topics, whether or not they are unlocked.
 5. **Pool size (6 start, 10 max)** was chosen by simulating random and skilled players. A player guessing at random runs out after about 6 scenarios, and a player who is right 80% of the time usually survives all 15.

@@ -6,7 +6,7 @@ export default function LevelSelect({ mode, levels, progress, best = {}, onSelec
   const plural = MIN_STARS_TO_UNLOCK === 1 ? '' : 's';
   const lede =
     mode === 'timed'
-      ? `Every scenario has a 15 second countdown. Earn at least ${MIN_STARS_TO_UNLOCK} star${plural} on a level to unlock the next.`
+      ? `Every scenario has its own short countdown. Earn at least ${MIN_STARS_TO_UNLOCK} star${plural} on a level to unlock the next.`
       : `Play each emergency as a level. Earn at least ${MIN_STARS_TO_UNLOCK} star${plural} on a level to unlock the next.`;
 
   const handleReset = () => {
