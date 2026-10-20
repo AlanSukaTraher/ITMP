@@ -11,7 +11,7 @@ const MODES = [
     id: 'timed',
     icon: 'timed',
     name: 'Timed Emergency Mode',
-    desc: 'Same levels with a 15 second countdown. Faster correct answers earn bonus points.',
+    desc: 'Same levels with a countdown. Faster correct answers earn bonus points.',
   },
   {
     id: 'survival',
