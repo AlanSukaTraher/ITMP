@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useGameEngine } from './hooks/useGameEngine';
 import { useProgress } from './hooks/useProgress';
+import { useBest } from './hooks/useBest';
 import { LEVELS, ALL_SCENARIOS } from './game/levels';
 import { starsFor, MIN_STARS_TO_UNLOCK } from './game/rules';
 import ModeSelect from './components/ModeSelect';
@@ -11,10 +12,21 @@ import SoundToggle from './components/SoundToggle';
 import { playSound, setMusicWanted } from './audio/sound';
 import './App.css';
 
+// Fisher-Yates shuffle, returning a new array.
+function shuffled(list) {
+  const copy = [...list];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
 export default function App() {
   const [mode, setMode] = useState(null); // null | 'scenario' | 'timed' | 'survival'
   const [levelId, setLevelId] = useState(null); // null while choosing a level
   const { progress, recordResult, resetProgress } = useProgress();
+  const { best, recordBest, resetBest } = useBest();
 
   // Scenario and Timed Emergency modes are played level by level.
   // Survival Mode plays all scenarios in a random order.
@@ -48,16 +60,20 @@ export default function App() {
   return (
     <div className={`game-container${inGame ? ' in-game' : ''}`}>
       <SoundToggle />
-      <h1>Emergency Response Simulator</h1>
+      <h1>Disaster Ready</h1>
       {mode === null && <ModeSelect onSelect={chooseMode} />}
       {usesLevels && level === null && (
         <LevelSelect
           mode={mode}
           levels={LEVELS}
           progress={progress}
+          best={best}
           onSelect={setLevelId}
           onBack={backToMenu}
-          onReset={resetProgress}
+          onReset={() => {
+            resetProgress();
+            resetBest();
+          }}
         />
       )}
       {inGame && (
@@ -66,6 +82,7 @@ export default function App() {
           mode={mode}
           level={level}
           onRecord={recordResult}
+          onBest={recordBest}
           onSelectLevel={setLevelId}
           onLevels={() => setLevelId(null)}
           onMenu={backToMenu}
@@ -75,12 +92,15 @@ export default function App() {
   );
 }
 
-function GameRunner({ mode, level, onRecord, onSelectLevel, onLevels, onMenu }) {
-  const questions = level ? level.scenarios : ALL_SCENARIOS;
+function GameRunner({ mode, level, onRecord, onBest, onSelectLevel, onLevels, onMenu }) {
+  // Scenarios are shuffled once per play, so replays are not identical.
+  const [questions] = useState(() => shuffled(level ? level.scenarios : ALL_SCENARIOS));
+  const [bestInfo, setBestInfo] = useState(null);
 
   // Called once when the last result is reached: save the star rating for levels.
   const handleFinish = (result) => {
     if (level) onRecord(level.id, starsFor(result.correct, result.total));
+    setBestInfo(onBest(`${mode}:${level?.id ?? 'all'}`, result.score, result.elapsedMs / 1000));
   };
 
   const engine = useGameEngine({ questions, mode, onFinish: handleFinish });
@@ -103,6 +123,8 @@ function GameRunner({ mode, level, onRecord, onSelectLevel, onLevels, onMenu }) 
         total={engine.totalQuestions}
         elapsedSeconds={engine.elapsedSeconds}
         avgSeconds={engine.avgSeconds}
+        history={engine.history}
+        bestInfo={bestInfo}
         onRestart={engine.restart}
         onNext={passed && nextLevel ? () => onSelectLevel(nextLevel.id) : null}
         onLevels={level ? onLevels : null}

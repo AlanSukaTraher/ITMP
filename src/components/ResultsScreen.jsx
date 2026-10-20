@@ -45,6 +45,8 @@ export default function ResultsScreen({
   total,
   elapsedSeconds,
   avgSeconds,
+  history = [],
+  bestInfo = null, // { isNew, previous } for this result
   onRestart,
   onNext, // null when there is no next level to go to
   onLevels, // null in Survival Mode
@@ -63,6 +65,7 @@ export default function ResultsScreen({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const isLevel = stars !== null;
+  const mistakes = history.filter((h) => !h.correct);
 
   let heading;
   let message = toneMessage;
@@ -109,12 +112,43 @@ export default function ResultsScreen({
           <div className="result-label">Total time</div>
         </div>
       </div>
+      {bestInfo && (
+        <p className={`result-best ${bestInfo.isNew ? 'is-new' : ''}`}>
+          {bestInfo.isNew
+            ? bestInfo.previous
+              ? `🏆 New best score! (previous best ${bestInfo.previous.score})`
+              : '🏆 First score saved. Try to beat it!'
+            : `Best score: ${bestInfo.previous.score}`}
+        </p>
+      )}
       <p className="result-detail">
         Answered {answered} of {total} scenarios · average {Math.round(avgSeconds)}s per scenario
       </p>
 
       <p className="result-message">{message}</p>
       {isLevel && <p className="result-unlock">{unlockLine(passed, nextLevel)}</p>}
+
+      {mistakes.length > 0 ? (
+        <div className="review">
+          <h3 className="review-title">Review your mistakes</h3>
+          <ul className="review-list">
+            {mistakes.map((m) => (
+              <li key={m.id} className="review-item">
+                <p className="review-scenario">
+                  {m.title} <span className="review-topic">{m.topicLabel}</span>
+                </p>
+                <p className="review-line review-wrong">
+                  {m.timedOut ? '⏰ You ran out of time.' : `✗ You chose: ${m.chosenText}`}
+                </p>
+                <p className="review-line review-right">✓ Safest action: {m.correctText}</p>
+                <p className="review-why">{m.explanation}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : (
+        history.length > 0 && <p className="review-clean">No mistakes. You chose the safest action every time.</p>
+      )}
 
       <div className="result-actions">
         {onNext && (

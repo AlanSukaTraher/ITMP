@@ -85,6 +85,90 @@
           "feedback": "Overpasses and bridges are at higher risk of structural damage or collapse during an earthquake. Never stop directly beneath one."
         }
       ]
+    },
+    {
+      "id": "earthquake_04",
+      "title": "Shaking at Night",
+      "description": "You are asleep in bed at night when the whole room begins to shake violently.",
+      "choices": [
+        {
+          "id": "earthquake_04_a",
+          "text": "Run outside barefoot as quickly as you can",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Running during shaking is how people fall or get hit by falling objects, and broken glass can cut bare feet."
+        },
+        {
+          "id": "earthquake_04_b",
+          "text": "Stay in bed, lie face down, and protect your head and neck with a pillow",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. If you are in bed, staying put and covering your head with a pillow is safer than moving through a shaking room."
+        },
+        {
+          "id": "earthquake_04_c",
+          "text": "Stand in the doorway because it is the strongest spot",
+          "correct": false,
+          "safetyImpact": -1,
+          "feedback": "The doorway myth is out of date. Modern doorways are no stronger than the rest of the house, and the door can swing and hurt you."
+        }
+      ]
+    },
+    {
+      "id": "earthquake_05",
+      "title": "Aftershocks and a Gas Smell",
+      "description": "The shaking has stopped, but you smell gas in your home and you know aftershocks can follow.",
+      "choices": [
+        {
+          "id": "earthquake_05_a",
+          "text": "Flip the light switch to see what is going on",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Switches can create sparks. Never use flames, switches or electronics near a gas leak."
+        },
+        {
+          "id": "earthquake_05_b",
+          "text": "Open a window, leave right away without using switches or flames, and report it from outside",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Get out quickly, avoid anything that can spark, and report the leak from a safe distance."
+        },
+        {
+          "id": "earthquake_05_c",
+          "text": "Stay inside and light a candle to look around",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "An open flame near leaking gas can cause an explosion."
+        }
+      ]
+    },
+    {
+      "id": "earthquake_06",
+      "title": "In a Crowded Shop",
+      "description": "You are inside a busy shop when a strong earthquake hits and people start shouting and rushing for the doors.",
+      "choices": [
+        {
+          "id": "earthquake_06_a",
+          "text": "Join the crowd and run for the exit",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Crowds crush and trip people, and the area near doors and glass is dangerous. Hold off until the shaking stops."
+        },
+        {
+          "id": "earthquake_06_b",
+          "text": "Drop down, cover your head, and move away from windows, glass and tall shelves",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Protect your head, stay away from things that can fall or shatter, and wait for the shaking to stop before leaving."
+        },
+        {
+          "id": "earthquake_06_c",
+          "text": "Climb onto a counter so you are not trampled",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Getting up on high furniture makes you more likely to fall and be hurt. Stay low and covered."
+        }
+      ]
     }
   ]
 }

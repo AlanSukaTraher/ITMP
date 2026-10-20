@@ -754,3 +754,129 @@ button {
   outline: 3px solid var(--info);
   outline-offset: 2px;
 }
+
+/* Menu hero: the five emergency topics */
+.hero-icons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+.hero-icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: var(--plate);
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+}
+.hero-icon .icon {
+  width: 78%;
+  height: 78%;
+  object-fit: contain;
+}
+.hero-icon .icon[src*="first_aid"] {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Screens ease in */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+.game-container > section,
+.game-container > div:not(.sound-toggle) {
+  animation: rise-in 0.28s ease-out;
+}
+
+/* Timed Mode: last 5 seconds */
+@keyframes urgent-pulse {
+  to {
+    transform: scale(1.18);
+  }
+}
+.timer.urgent .timer-num {
+  display: inline-block;
+  animation: urgent-pulse 0.5s ease-in-out infinite alternate;
+}
+.timer.urgent .timer-track {
+  box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.35);
+}
+
+.key-hint {
+  margin-top: 10px;
+  color: var(--ink-soft);
+  font-size: 15px;
+}
+@media (hover: none) {
+  .key-hint {
+    display: none;
+  }
+}
+
+/* Best score and mistakes review on the results screen */
+.result-best {
+  padding: 10px 22px 0;
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+.result-best.is-new {
+  color: var(--safe);
+}
+.review {
+  padding: 4px 22px 8px;
+}
+.review-title {
+  font-family: var(--display);
+  font-size: 26px;
+  margin: 8px 0 10px;
+}
+.review-list {
+  display: grid;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.review-item {
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  padding: 12px 14px;
+  background: #fff;
+}
+.review-scenario {
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+.review-topic {
+  margin-left: 8px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  font-weight: 500;
+}
+.review-line {
+  margin: 2px 0;
+  font-size: 16px;
+}
+.review-wrong {
+  color: var(--danger);
+}
+.review-right {
+  color: var(--safe);
+  font-weight: 600;
+}
+.review-why {
+  margin: 8px 0 0;
+  color: var(--ink-soft);
+  font-size: 15px;
+}
+.review-clean {
+  padding: 4px 22px 0;
+  color: var(--safe);
+  font-weight: 600;
+}

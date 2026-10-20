@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { TOPIC_ICONS } from '../game/levels';
 import { Icon } from './Icons';
-import { playSound } from '../audio/sound';
+import { playSound, playTick } from '../audio/sound';
 
 const OPTION_KEYS = ['A', 'B', 'C', 'D', 'E', 'F'];
 
@@ -42,6 +42,30 @@ export default function QuestionScreen({ engine }) {
     if (selectedOption) playSound(selectedOption.isCorrect ? 'correct' : 'wrong');
   }, [selectedOption]);
 
+  // Ticking in the last 5 seconds of Timed Mode.
+  useEffect(() => {
+    if (isTimed && selectedOption === null && timeLeft > 0 && timeLeft <= 5) playTick();
+  }, [isTimed, selectedOption, timeLeft]);
+
+  // Keyboard: A/B/C (or 1/2/3) pick an answer, Enter moves on.
+  useEffect(() => {
+    const onKey = (event) => {
+      if (event.repeat || event.ctrlKey || event.metaKey || event.altKey) return;
+      if (selectedOption === null) {
+        const index = OPTION_KEYS.indexOf(event.key.toUpperCase());
+        const byNumber = Number(event.key) - 1;
+        const choice = currentQuestion?.options[index >= 0 ? index : byNumber];
+        if (choice) answer(choice);
+      } else if (event.key === 'Enter') {
+        // A focused button already handles Enter itself.
+        if (document.activeElement?.tagName === 'BUTTON') return;
+        advance();
+      }
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  });
+
   if (!currentQuestion) return null;
 
   const answered = selectedOption !== null;
@@ -81,7 +105,7 @@ export default function QuestionScreen({ engine }) {
       )}
 
       {isTimed && (
-        <div className={`timer ${timeLeft <= 5 ? 'warning' : ''}`} role="timer">
+        <div className={`timer ${timeLeft <= 5 && !answered ? 'warning urgent' : timeLeft <= 5 ? 'warning' : ''}`} role="timer">
           <div className="timer-track">
             <div className="timer-fill" style={{ width: `${timerPercent}%` }} />
           </div>
@@ -132,6 +156,10 @@ export default function QuestionScreen({ engine }) {
           );
         })}
       </div>
+
+      {selectedOption === null && (
+        <p className="key-hint">Tip: press A, B or C on your keyboard to answer.</p>
+      )}
 
       {selectedOption && (
         <div

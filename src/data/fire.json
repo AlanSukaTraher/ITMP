@@ -85,6 +85,90 @@
           "feedback": "Sheltering in place is only advised when instructed by officials or when exits are fully blocked. Here, a viable escape route still exists, so retreating wastes it."
         }
       ]
+    },
+    {
+      "id": "fire_04",
+      "title": "Grease Fire in the Kitchen",
+      "description": "You are frying food when the oil in the pan suddenly catches fire and flames rise above the pan.",
+      "choices": [
+        {
+          "id": "fire_04_a",
+          "text": "Pour water on the pan to put it out",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Water on burning oil makes it spatter and flare up into a bigger fireball. Never use water on a grease fire."
+        },
+        {
+          "id": "fire_04_b",
+          "text": "Turn off the heat if you safely can and slide a lid over the pan",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Cutting off the heat and the oxygen smothers a grease fire. Leave the lid on until the pan is completely cool."
+        },
+        {
+          "id": "fire_04_c",
+          "text": "Carry the burning pan outside to the garden",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Moving a pan of burning oil can spill it and burn you. Smother it where it is, or leave and call for help if it spreads."
+        }
+      ]
+    },
+    {
+      "id": "fire_05",
+      "title": "Trapped in a Room",
+      "description": "A fire has started in your building. When you reach the door of your room, it feels hot and smoke is coming in around the edges.",
+      "choices": [
+        {
+          "id": "fire_05_a",
+          "text": "Open the door and run through the smoke",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "A hot door means fire is right behind it. Opening it can let flames and superheated gas into your room."
+        },
+        {
+          "id": "fire_05_b",
+          "text": "Keep the door shut, block the gaps with wet cloth, and signal for help at the window",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Sealing the gaps slows smoke, and calling emergency services and signalling from the window tells rescuers where you are."
+        },
+        {
+          "id": "fire_05_c",
+          "text": "Hide in the closet until the fire is out",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Hiding makes you harder to find and leaves you with no way out. Stay where rescuers can see you and call for help."
+        }
+      ]
+    },
+    {
+      "id": "fire_06",
+      "title": "Clothes on Fire",
+      "description": "A small flame from a candle catches the sleeve of your jacket and your clothes are on fire.",
+      "choices": [
+        {
+          "id": "fire_06_a",
+          "text": "Run to find water as fast as you can",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Running feeds the flames with more air. Stop where you are instead."
+        },
+        {
+          "id": "fire_06_b",
+          "text": "Stop, drop to the ground, cover your face, and roll until the fire is out",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Stop, drop and roll smothers the flames. Cool the burn under running water afterwards and get medical help."
+        },
+        {
+          "id": "fire_06_c",
+          "text": "Wave your arms to put the flames out",
+          "correct": false,
+          "safetyImpact": -1,
+          "feedback": "Waving your arms gives the fire more air. Dropping and rolling is what smothers it."
+        }
+      ]
     }
   ]
 }

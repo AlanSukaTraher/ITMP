@@ -2,7 +2,7 @@ import { isUnlocked, MIN_STARS_TO_UNLOCK } from '../game/rules';
 import { LEVEL_IDS } from '../game/levels';
 import { Icon, StarRow } from './Icons';
 
-export default function LevelSelect({ mode, levels, progress, onSelect, onBack, onReset }) {
+export default function LevelSelect({ mode, levels, progress, best = {}, onSelect, onBack, onReset }) {
   const plural = MIN_STARS_TO_UNLOCK === 1 ? '' : 's';
   const lede =
     mode === 'timed'
@@ -39,7 +39,9 @@ export default function LevelSelect({ mode, levels, progress, onSelect, onBack, 
                 <span className="mode-name">{level.label}</span>
                 <span className="mode-desc">
                   {unlocked
-                    ? `${level.scenarios.length} scenarios`
+                    ? `${level.scenarios.length} scenarios${
+                        best[`${mode}:${level.id}`] ? ` · Best score ${best[`${mode}:${level.id}`].score}` : ''
+                      }`
                     : `Locked. Earn ${MIN_STARS_TO_UNLOCK} star${plural} on ${previous.label} first.`}
                 </span>
               </span>

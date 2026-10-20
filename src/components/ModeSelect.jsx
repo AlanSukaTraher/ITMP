@@ -24,6 +24,13 @@ const MODES = [
 export default function ModeSelect({ onSelect }) {
   return (
     <section>
+      <div className="hero-icons" aria-hidden="true">
+        {['fire', 'earthquake', 'flood', 'storm', 'first_aid'].map((name) => (
+          <span key={name} className="hero-icon">
+            <Icon name={name} />
+          </span>
+        ))}
+      </div>
       <p className="lede">
         Choose the safest action in fire, flood, storm, earthquake and first aid emergencies.
       </p>

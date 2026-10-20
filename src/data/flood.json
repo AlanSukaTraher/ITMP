@@ -85,6 +85,90 @@
           "feedback": "Power lines can carry a lethal charge even through objects like sticks. Never touch a downed line directly or indirectly. Keep your distance and report it."
         }
       ]
+    },
+    {
+      "id": "flood_04",
+      "title": "Evacuation Order",
+      "description": "Authorities warn that a river is about to overflow and tell your neighbourhood to evacuate. The water has not reached your street yet.",
+      "choices": [
+        {
+          "id": "flood_04_a",
+          "text": "Wait until the water reaches your street before deciding",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Floodwater can rise very quickly and cut off roads. Leave while the route is still safe."
+        },
+        {
+          "id": "flood_04_b",
+          "text": "Leave now with essentials and follow the official route to higher ground",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Evacuate early, take only what you need, and use the routes authorities recommend."
+        },
+        {
+          "id": "flood_04_c",
+          "text": "Stay home and move the car into the garage",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "A garage will not protect a car or you from a serious flood, and delaying risks being trapped."
+        }
+      ]
+    },
+    {
+      "id": "flood_05",
+      "title": "Car in Rising Water",
+      "description": "Water is rising around your car on a low road and the engine has stalled. The water is not yet above the doors.",
+      "choices": [
+        {
+          "id": "flood_05_a",
+          "text": "Stay inside and wait for it to pass",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Rising water can lift a car and sweep it away. Waiting inside can trap you."
+        },
+        {
+          "id": "flood_05_b",
+          "text": "Get out now and move to higher ground on foot if it is safe to do so",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Leave the vehicle early while you still can, and head for higher ground. Cars are replaceable, people are not."
+        },
+        {
+          "id": "flood_05_c",
+          "text": "Try to restart the engine and drive through",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Driving through floodwater is dangerous. Even shallow water can stall a car or carry it away."
+        }
+      ]
+    },
+    {
+      "id": "flood_06",
+      "title": "After the Water Goes Down",
+      "description": "The flood is receding. A neighbour wants to wade through the water in the street to start cleaning up.",
+      "choices": [
+        {
+          "id": "flood_06_a",
+          "text": "Wade through barefoot, since the water looks clear",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Floodwater can carry sewage, chemicals and sharp objects even when it looks clean, and it can hide holes and live wires."
+        },
+        {
+          "id": "flood_06_b",
+          "text": "Avoid it if possible, and if you must go in, wear waterproof boots and gloves and wash well afterwards",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Floodwater is often contaminated. Protect your skin, wash up, and wait for confirmation before drinking tap water."
+        },
+        {
+          "id": "flood_06_c",
+          "text": "Drink the tap water to stay hydrated while you work",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Tap water may be contaminated after a flood. Use bottled water until officials say it is safe."
+        }
+      ]
     }
   ]
 }
