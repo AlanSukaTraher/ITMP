@@ -1,0 +1,486 @@
+{
+  "mode": "timed",
+  "defaultTimeLimit": 10,
+  "scenarios": [
+    {
+      "id": "timed_fire_01",
+      "topic": "fire",
+      "topicLabel": "Fire in a Building",
+      "title": "Clothes on Fire",
+      "timeLimit": 8,
+      "description": "A candle sets your sleeve on fire. What do you do?",
+      "timeoutFeedback": "Time's up! When clothes catch fire, every second counts: stop, drop, and roll.",
+      "choices": [
+        {
+          "id": "timed_fire_01_a",
+          "text": "Run to find help",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Running feeds the flames with more air. Stop, drop, and roll instead."
+        },
+        {
+          "id": "timed_fire_01_b",
+          "text": "Stop, drop, and roll",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Rolling smothers the flames. Cover your face with your hands while you roll."
+        },
+        {
+          "id": "timed_fire_01_c",
+          "text": "Wave your arm in the air",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Waving fans the flames and makes the fire grow."
+        }
+      ]
+    },
+    {
+      "id": "timed_fire_02",
+      "topic": "fire",
+      "topicLabel": "Fire in a Building",
+      "title": "Grease Fire",
+      "timeLimit": 10,
+      "description": "The oil in your frying pan bursts into flames.",
+      "timeoutFeedback": "Time's up! For a grease fire, cover the pan with a lid and turn off the heat.",
+      "choices": [
+        {
+          "id": "timed_fire_02_a",
+          "text": "Pour water on the burning pan",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Water makes burning grease splash and spread the fire."
+        },
+        {
+          "id": "timed_fire_02_b",
+          "text": "Cover with a lid, turn off heat",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Covering the pan cuts off the oxygen. Leave the lid on until the pan is cool."
+        },
+        {
+          "id": "timed_fire_02_c",
+          "text": "Carry the burning pan outside",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Carrying a burning pan can spill flames and burn you."
+        }
+      ]
+    },
+    {
+      "id": "timed_fire_03",
+      "topic": "fire",
+      "topicLabel": "Fire in a Building",
+      "title": "Trapped by Fire",
+      "timeLimit": 12,
+      "description": "Flames block the hallway outside your upstairs bedroom. You have a window.",
+      "timeoutFeedback": "Time's up! If you are trapped, close the door, block the gaps, call for help, and signal from the window.",
+      "choices": [
+        {
+          "id": "timed_fire_03_a",
+          "text": "Open the door and run through flames",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Running through fire causes severe burns and smoke inhalation."
+        },
+        {
+          "id": "timed_fire_03_b",
+          "text": "Seal the door and signal at the window",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. A closed door slows smoke and fire, and signalling helps rescuers find you."
+        },
+        {
+          "id": "timed_fire_03_c",
+          "text": "Hide under the bed until it passes",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Hiding makes you harder for rescuers to find."
+        }
+      ]
+    },
+    {
+      "id": "timed_flood_01",
+      "topic": "flood",
+      "topicLabel": "Flood",
+      "title": "Trapped Car",
+      "timeLimit": 8,
+      "description": "Your car is trapped in rapidly moving floodwater, and water is now rising inside it.",
+      "timeoutFeedback": "Time's up! If water rises inside a trapped car, get on the roof and signal for help.",
+      "choices": [
+        {
+          "id": "timed_flood_01_a",
+          "text": "Stay in the seat and wait it out",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Once water is rising inside the car, staying put is no longer safe."
+        },
+        {
+          "id": "timed_flood_01_b",
+          "text": "Get on the roof and signal for help",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Stay in the car while trapped by moving water, but if water rises inside, get on the roof and signal for help."
+        },
+        {
+          "id": "timed_flood_01_c",
+          "text": "Open the door and swim to the bank",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Do not swim through floodwater. Moving water is far stronger than it looks."
+        }
+      ]
+    },
+    {
+      "id": "timed_flood_02",
+      "topic": "flood",
+      "topicLabel": "Flood",
+      "title": "Flash Flood Warning at Camp",
+      "timeLimit": 10,
+      "description": "You are camping near a creek and a flash flood warning arrives.",
+      "timeoutFeedback": "Time's up! In a flash flood warning, move to higher ground immediately. Leave your gear behind.",
+      "choices": [
+        {
+          "id": "timed_flood_02_a",
+          "text": "Pack up the tents and gear first",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Flash floods rise in minutes. Gear can be replaced, you cannot."
+        },
+        {
+          "id": "timed_flood_02_b",
+          "text": "Move to higher ground right now",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Get away from the creek and uphill immediately."
+        },
+        {
+          "id": "timed_flood_02_c",
+          "text": "Wait to see if the creek really rises",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Waiting for proof can leave you with no time to escape."
+        }
+      ]
+    },
+    {
+      "id": "timed_flood_03",
+      "topic": "flood",
+      "topicLabel": "Flood",
+      "title": "Crossing on Foot",
+      "timeLimit": 8,
+      "description": "You must cross a street covered by fast-moving, ankle-deep water.",
+      "timeoutFeedback": "Time's up! Do not walk through moving floodwater. Turn around and find another way.",
+      "choices": [
+        {
+          "id": "timed_flood_03_a",
+          "text": "Cross quickly because it is shallow",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Even a few inches of fast-moving water can knock an adult off their feet."
+        },
+        {
+          "id": "timed_flood_03_b",
+          "text": "Turn around and take another route",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Turn Around, Don't Drown. Floodwater can also hide hazards and be contaminated."
+        },
+        {
+          "id": "timed_flood_03_c",
+          "text": "Hold a friend's hand and cross together",
+          "correct": false,
+          "safetyImpact": -1,
+          "feedback": "Two people can still be swept away. Avoid the water."
+        }
+      ]
+    },
+    {
+      "id": "timed_storm_01",
+      "topic": "storm",
+      "topicLabel": "Severe Storm",
+      "title": "Mobile Home Warning",
+      "timeLimit": 10,
+      "description": "A tornado warning is issued and you are in a mobile home.",
+      "timeoutFeedback": "Time's up! A mobile home is not safe in a tornado. Get to a sturdy shelter right away.",
+      "choices": [
+        {
+          "id": "timed_storm_01_a",
+          "text": "Hide in the bathtub with a mattress",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Mobile homes can overturn in strong winds, even when tied down."
+        },
+        {
+          "id": "timed_storm_01_b",
+          "text": "Go to a sturdy building or shelter",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Do not stay in a mobile home. Go to a nearby sturdy building, preferably one with a basement."
+        },
+        {
+          "id": "timed_storm_01_c",
+          "text": "Stay by the door to watch the sky",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Watching wastes time and exposes you to flying debris."
+        }
+      ]
+    },
+    {
+      "id": "timed_storm_02",
+      "topic": "storm",
+      "topicLabel": "Severe Storm",
+      "title": "Warning at the Office",
+      "timeLimit": 12,
+      "description": "The tornado sirens go off while you are inside a large office building.",
+      "timeoutFeedback": "Time's up! Go to the lowest floor, to an interior room or hallway away from windows.",
+      "choices": [
+        {
+          "id": "timed_storm_02_a",
+          "text": "Go to the lowest floor, away from windows",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. More walls between you and the outside means more protection."
+        },
+        {
+          "id": "timed_storm_02_b",
+          "text": "Go to the top floor for a better view",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Upper floors give less protection. Shelter on the lowest floor instead."
+        },
+        {
+          "id": "timed_storm_02_c",
+          "text": "Gather in the big open cafeteria",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Avoid large open rooms such as cafeterias, gyms, and auditoriums."
+        }
+      ]
+    },
+    {
+      "id": "timed_storm_03",
+      "topic": "storm",
+      "topicLabel": "Severe Storm",
+      "title": "Thunder in the Open",
+      "timeLimit": 8,
+      "description": "You hear thunder while standing in an open field. A hard-topped car is nearby.",
+      "timeoutFeedback": "Time's up! When thunder roars, go indoors. A hard-topped vehicle is the next best choice.",
+      "choices": [
+        {
+          "id": "timed_storm_03_a",
+          "text": "Shelter under the tallest tree",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Lightning often strikes tall objects, and trees are dangerous shelter."
+        },
+        {
+          "id": "timed_storm_03_b",
+          "text": "Lie flat in the middle of the field",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Lying flat in the open does not protect you. Get to a building or hard-topped vehicle."
+        },
+        {
+          "id": "timed_storm_03_c",
+          "text": "Get in the car and close windows",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. A building is best, and a hard-topped vehicle with windows up is the next best option."
+        }
+      ]
+    },
+    {
+      "id": "timed_quake_01",
+      "topic": "earthquake",
+      "topicLabel": "Earthquake",
+      "title": "Shaking in Bed",
+      "timeLimit": 8,
+      "description": "You wake up at night as the room begins to shake violently.",
+      "timeoutFeedback": "Time's up! If you are in bed, stay there and protect your head and neck with a pillow.",
+      "choices": [
+        {
+          "id": "timed_quake_01_a",
+          "text": "Run outside through the dark house",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Moving during shaking risks falls and injury from broken glass and debris."
+        },
+        {
+          "id": "timed_quake_01_b",
+          "text": "Stay in bed and cover your head",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Staying put and covering your head reduces your risk of injury."
+        },
+        {
+          "id": "timed_quake_01_c",
+          "text": "Stand in the doorway to be safe",
+          "correct": false,
+          "safetyImpact": -1,
+          "feedback": "A doorway does not protect you in modern buildings. Doors can swing and hurt you."
+        }
+      ]
+    },
+    {
+      "id": "timed_quake_02",
+      "topic": "earthquake",
+      "topicLabel": "Earthquake",
+      "title": "Shaking While Driving",
+      "timeLimit": 10,
+      "description": "The road starts shaking while you are driving near buildings and overpasses.",
+      "timeoutFeedback": "Time's up! Pull over in a clear area, set the parking brake, and stay in the car.",
+      "choices": [
+        {
+          "id": "timed_quake_02_a",
+          "text": "Speed up to get away from the shaking",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Driving fast on damaged roads can cause a serious crash."
+        },
+        {
+          "id": "timed_quake_02_b",
+          "text": "Stop beneath the nearest overpass",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Overpasses, bridges, and buildings can collapse or drop debris."
+        },
+        {
+          "id": "timed_quake_02_c",
+          "text": "Pull over in the open and stay inside",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Stop away from buildings, trees, overpasses, and power lines, set the parking brake, and stay in the car until the shaking stops."
+        }
+      ]
+    },
+    {
+      "id": "timed_quake_03",
+      "topic": "earthquake",
+      "topicLabel": "Earthquake",
+      "title": "Caught Outside",
+      "timeLimit": 10,
+      "description": "You are walking beside tall buildings when an earthquake strikes.",
+      "timeoutFeedback": "Time's up! Move to an open area away from buildings, then get down low until the shaking stops.",
+      "choices": [
+        {
+          "id": "timed_quake_03_a",
+          "text": "Run inside the closest building",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Falling glass and debris near buildings cause many injuries."
+        },
+        {
+          "id": "timed_quake_03_b",
+          "text": "Move away from buildings, then cover",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Open space away from buildings, trees, and wires is safest outdoors. Get down low until the shaking stops."
+        },
+        {
+          "id": "timed_quake_03_c",
+          "text": "Stand still beside the nearest wall",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Walls and facades can fall outward onto the street."
+        }
+      ]
+    },
+    {
+      "id": "timed_aid_01",
+      "topic": "first_aid",
+      "topicLabel": "Basic First Aid",
+      "title": "Choking Baby",
+      "timeLimit": 8,
+      "description": "A baby is choking, cannot cry, and is turning blue.",
+      "timeoutFeedback": "Time's up! For a choking infant, give 5 back blows and 5 chest thrusts, and call for help.",
+      "choices": [
+        {
+          "id": "timed_aid_01_a",
+          "text": "Give 5 back blows and 5 chest thrusts",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Alternate back blows and chest thrusts until the object comes out or the baby can breathe."
+        },
+        {
+          "id": "timed_aid_01_b",
+          "text": "Give the baby some water to wash it down",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Liquid can make choking worse because the airway is blocked."
+        },
+        {
+          "id": "timed_aid_01_c",
+          "text": "Hold the baby upside down and shake",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "This can injure the baby and push the object deeper."
+        }
+      ]
+    },
+    {
+      "id": "timed_aid_02",
+      "topic": "first_aid",
+      "topicLabel": "Basic First Aid",
+      "title": "Bleeding Through the Bandage",
+      "timeLimit": 10,
+      "description": "A deep cut is bleeding heavily and blood is soaking through the cloth you are pressing on it.",
+      "timeoutFeedback": "Time's up! Keep firm pressure on the wound and add more layers. Do not remove the cloth.",
+      "choices": [
+        {
+          "id": "timed_aid_02_a",
+          "text": "Lift the cloth to check the wound",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Lifting the cloth disturbs the clot and lets bleeding start again."
+        },
+        {
+          "id": "timed_aid_02_b",
+          "text": "Add more cloth and keep pressing",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Keep firm pressure, add layers if needed, and call emergency services."
+        },
+        {
+          "id": "timed_aid_02_c",
+          "text": "Rinse the wound and leave it open",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Heavy bleeding must be controlled first with direct pressure."
+        }
+      ]
+    },
+    {
+      "id": "timed_aid_03",
+      "topic": "first_aid",
+      "topicLabel": "Basic First Aid",
+      "title": "Scalded Arm",
+      "timeLimit": 8,
+      "description": "Boiling water spills onto your friend's forearm.",
+      "timeoutFeedback": "Time's up! Cool a burn right away under cool running water. Do not use ice or butter.",
+      "choices": [
+        {
+          "id": "timed_aid_03_a",
+          "text": "Put ice directly on the burn",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Ice can damage the skin further. Use cool running water instead."
+        },
+        {
+          "id": "timed_aid_03_b",
+          "text": "Hold it under cool running water",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Clean, cool running water cools the burn and helps relieve pain. Seek medical help for serious burns."
+        },
+        {
+          "id": "timed_aid_03_c",
+          "text": "Spread butter over the burn",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Butter and other greasy substances can seal in the heat and make the burn worse."
+        }
+      ]
+    }
+  ]
+}

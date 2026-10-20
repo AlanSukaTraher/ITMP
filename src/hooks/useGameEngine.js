@@ -8,11 +8,12 @@ import {
 } from '../game/rules';
 
 const TIMER_DEFAULT = 15;
+const TIMEOUT_MESSAGE = "⏰ Time's up! You ran out of time to respond.";
 
 // Shared quiz logic for all three modes. `questions` is the list to play:
 // - Scenario Mode: one level (a topic's scenarios) in fixed order, no timer.
-// - Timed Emergency Mode: same as Scenario Mode, but each question has a 15s
-//   countdown. Running out of time counts as a wrong answer. Correct answers
+// - Timed Emergency Mode: same as Scenario Mode, but each question has a
+//   countdown (its own `timeLimit` from timed.json, 15s if it has none). Running out of time counts as a wrong answer. Correct answers
 //   score a speed bonus equal to the time remaining.
 // - Survival Mode: all scenarios in random order. Each choice changes the
 //   Safety Points pool (wrong = lose points, correct = restore points). The run
@@ -24,6 +25,9 @@ const TIMER_DEFAULT = 15;
 export function useGameEngine({ questions, mode, onFinish }) {
   const isSurvival = mode === 'survival';
   const isTimed = mode === 'timed';
+
+  // Seconds allowed for a question in Timed mode.
+  const getLimit = (index) => questions[index]?.timeLimit ?? TIMER_DEFAULT;
 
   const pickIndex = useCallback((usedIndices) => {
     const allIndices = questions.map((_, i) => i);
@@ -42,7 +46,7 @@ export function useGameEngine({ questions, mode, onFinish }) {
   const [selectedOption, setSelectedOption] = useState(null);
   const [pendingGameOver, setPendingGameOver] = useState(false);
   const [gameOver, setGameOver] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(isTimed ? TIMER_DEFAULT : null);
+  const [timeLeft, setTimeLeft] = useState(isTimed ? getLimit(questionIndex) : null);
   const [elapsedMs, setElapsedMs] = useState(0);
   // Every answer given, so the results screen can review the mistakes.
   const [history, setHistory] = useState([]);
@@ -107,7 +111,7 @@ export function useGameEngine({ questions, mode, onFinish }) {
           text: null,
           isCorrect: false,
           safetyImpact: TIMEOUT_IMPACT,
-          feedback: "⏰ Time's up! You ran out of time to respond.",
+          feedback: currentQuestion?.timeoutFeedback ?? TIMEOUT_MESSAGE,
         });
       }, 0);
       return () => clearTimeout(timeout);
@@ -123,8 +127,6 @@ export function useGameEngine({ questions, mode, onFinish }) {
   const advance = () => {
     setSelectedOption(null);
     setAnsweredCount((prev) => prev + 1);
-    if (isTimed) setTimeLeft(TIMER_DEFAULT);
-
     if (isFinalPrompt) {
       setGameOver(true);
       onFinish?.({
@@ -141,13 +143,10 @@ export function useGameEngine({ questions, mode, onFinish }) {
 
     questionStartRef.current = Date.now();
 
-    if (isSurvival) {
-      const next = pickIndex(usedIndices);
-      setUsedIndices((prev) => [...prev, next]);
-      setQuestionIndex(next);
-    } else {
-      setQuestionIndex((prev) => prev + 1);
-    }
+    const next = isSurvival ? pickIndex(usedIndices) : questionIndex + 1;
+    if (isSurvival) setUsedIndices((prev) => [...prev, next]);
+    setQuestionIndex(next);
+    if (isTimed) setTimeLeft(getLimit(next));
   };
 
   const restart = () => {
@@ -162,7 +161,7 @@ export function useGameEngine({ questions, mode, onFinish }) {
     setSelectedOption(null);
     setPendingGameOver(false);
     setGameOver(false);
-    setTimeLeft(isTimed ? TIMER_DEFAULT : null);
+    setTimeLeft(isTimed ? getLimit(first) : null);
     setElapsedMs(0);
     setHistory([]);
     questionStartRef.current = Date.now();
@@ -181,7 +180,7 @@ export function useGameEngine({ questions, mode, onFinish }) {
     safetyMax: SAFETY_MAX,
     lastImpact,
     timeLeft,
-    timerMax: TIMER_DEFAULT,
+    timerMax: getLimit(questionIndex),
     isTimed,
     selectedOption,
     gameOver,

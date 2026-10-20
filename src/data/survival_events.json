@@ -1,0 +1,605 @@
+{
+  "mode": "survival",
+  "scenarios": [
+    {
+      "id": "surv_fire_01",
+      "topic": "fire",
+      "topicLabel": "Fire in a Building",
+      "title": "Someone Is Still Inside",
+      "description": "You escaped a burning house, but your younger brother says his pet is still inside.",
+      "choices": [
+        {
+          "id": "surv_fire_01_a",
+          "text": "Go back in quickly to get the pet",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Never go back into a burning building. Smoke and heat can overcome you in seconds."
+        },
+        {
+          "id": "surv_fire_01_b",
+          "text": "Stay outside and call the fire service",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Once you are out, stay out. Firefighters have the equipment and training to search safely."
+        },
+        {
+          "id": "surv_fire_01_c",
+          "text": "Ask a neighbour to run in and fetch it",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Sending anyone back in puts another life at risk."
+        }
+      ]
+    },
+    {
+      "id": "surv_fire_02",
+      "topic": "fire",
+      "topicLabel": "Fire in a Building",
+      "title": "Heater by the Curtains",
+      "description": "You notice a space heater running right next to the living room curtains.",
+      "choices": [
+        {
+          "id": "surv_fire_02_a",
+          "text": "Leave it, since it has an automatic shut-off",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Heaters are a leading cause of home fires. Flammable items need to be kept well away from them."
+        },
+        {
+          "id": "surv_fire_02_b",
+          "text": "Switch it off and move it 3 feet away",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Keep anything that can burn at least 3 feet from heat sources, and turn heaters off when you leave the room."
+        },
+        {
+          "id": "surv_fire_02_c",
+          "text": "Tie the curtains back so they do not touch it",
+          "correct": false,
+          "safetyImpact": -1,
+          "feedback": "Tied curtains can still catch fire from the heat. Move the heater away instead."
+        }
+      ]
+    },
+    {
+      "id": "surv_fire_03",
+      "topic": "fire",
+      "topicLabel": "Fire in a Building",
+      "title": "Fire in the Oven",
+      "description": "Food in your oven catches fire and flames are visible through the glass door.",
+      "choices": [
+        {
+          "id": "surv_fire_03_a",
+          "text": "Open the door and blow out the flames",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Opening the door feeds the fire with oxygen and can send flames into your face."
+        },
+        {
+          "id": "surv_fire_03_b",
+          "text": "Pour a bucket of water into the oven",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Water can spread burning grease and is dangerous around electrical appliances."
+        },
+        {
+          "id": "surv_fire_03_c",
+          "text": "Turn the heat off, keep the door shut",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Keeping the door closed starves the fire of oxygen. If it does not go out, leave and call emergency services."
+        }
+      ]
+    },
+    {
+      "id": "surv_fire_04",
+      "topic": "fire",
+      "topicLabel": "Fire in a Building",
+      "title": "Alarm in the Tower",
+      "description": "The fire alarm rings in a multi-storey building where you are on the 8th floor.",
+      "choices": [
+        {
+          "id": "surv_fire_04_a",
+          "text": "Take the elevator since it is quicker",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Elevators can stop working or open onto the fire floor. Do not use them during a fire alarm."
+        },
+        {
+          "id": "surv_fire_04_b",
+          "text": "Wait at your desk until it is confirmed",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Treat every alarm as real. Delays cost you valuable escape time."
+        },
+        {
+          "id": "surv_fire_04_c",
+          "text": "Leave at once and take the stairs",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Use the stairs, stay calm, and go to the assembly point outside."
+        }
+      ]
+    },
+    {
+      "id": "surv_flood_01",
+      "topic": "flood",
+      "topicLabel": "Flood",
+      "title": "Flood Watch Tonight",
+      "description": "A flood watch is announced for your area. It is not raining hard yet.",
+      "choices": [
+        {
+          "id": "surv_flood_01_a",
+          "text": "Prepare: check your route and pack essentials",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. A watch means flooding is possible, so use the time to prepare."
+        },
+        {
+          "id": "surv_flood_01_b",
+          "text": "Ignore it because the rain is still light",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Conditions can change fast. A watch is your chance to prepare before a warning."
+        },
+        {
+          "id": "surv_flood_01_c",
+          "text": "Do nothing until water starts entering the house",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "By the time water enters your home, escape routes may already be cut off."
+        }
+      ]
+    },
+    {
+      "id": "surv_flood_02",
+      "topic": "flood",
+      "topicLabel": "Flood",
+      "title": "Evacuation Order",
+      "description": "Authorities order your neighbourhood to evacuate because of rising floodwater. Your family wants to stay and protect the house.",
+      "choices": [
+        {
+          "id": "surv_flood_02_a",
+          "text": "Stay and move your belongings upstairs first",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Possessions can be replaced, people cannot. Roads can flood quickly and cut off escape."
+        },
+        {
+          "id": "surv_flood_02_b",
+          "text": "Take a flooded shortcut to save time",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Flooded roads may hide washed-out sections. Turn around, don't drown."
+        },
+        {
+          "id": "surv_flood_02_c",
+          "text": "Leave now by the official evacuation route",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Follow evacuation orders early and stick to the official routes."
+        }
+      ]
+    },
+    {
+      "id": "surv_flood_03",
+      "topic": "flood",
+      "topicLabel": "Flood",
+      "title": "Going Home After the Flood",
+      "description": "The rain has stopped and the water outside is going down. You want to go home and check the damage.",
+      "choices": [
+        {
+          "id": "surv_flood_03_a",
+          "text": "Go home now and walk through the water",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Floodwater can be contaminated, electrified, and hide debris and holes."
+        },
+        {
+          "id": "surv_flood_03_b",
+          "text": "Wait until officials say it is safe",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Roads and buildings may still be unsafe even after the water drops."
+        },
+        {
+          "id": "surv_flood_03_c",
+          "text": "Send a child ahead to see if it is safe",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Children are at even greater risk from floodwater and hidden hazards."
+        }
+      ]
+    },
+    {
+      "id": "surv_flood_04",
+      "topic": "flood",
+      "topicLabel": "Flood",
+      "title": "Water in the Basement",
+      "description": "Floodwater has entered your basement, where the electrical panel and outlets are.",
+      "choices": [
+        {
+          "id": "surv_flood_04_a",
+          "text": "Wade in and unplug all of the appliances",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Standing water and electricity can be deadly. Never enter a flooded area with live power."
+        },
+        {
+          "id": "surv_flood_04_b",
+          "text": "Stay out and call the electric utility",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Stay out and let professionals make the power safe."
+        },
+        {
+          "id": "surv_flood_04_c",
+          "text": "Run an electric pump to drain it",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Using electrical equipment around standing water risks electric shock."
+        }
+      ]
+    },
+    {
+      "id": "surv_storm_01",
+      "topic": "storm",
+      "topicLabel": "Severe Storm",
+      "title": "Tornado Watch",
+      "description": "A tornado watch is issued for your area this afternoon.",
+      "choices": [
+        {
+          "id": "surv_storm_01_a",
+          "text": "Stay alert and know where your shelter is",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. A watch means conditions are right for tornadoes. Prepare to move quickly."
+        },
+        {
+          "id": "surv_storm_01_b",
+          "text": "Go outside to look for the tornado first",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Tornadoes can be hidden by rain or darkness. Do not wait to see one."
+        },
+        {
+          "id": "surv_storm_01_c",
+          "text": "Carry on as normal and ignore alerts",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Alerts change quickly. Staying informed gives you time to act."
+        }
+      ]
+    },
+    {
+      "id": "surv_storm_02",
+      "topic": "storm",
+      "topicLabel": "Severe Storm",
+      "title": "Warning Signs in the Sky",
+      "description": "The sky turns dark green, large hail begins to fall, and you hear a loud roar like a freight train.",
+      "choices": [
+        {
+          "id": "surv_storm_02_a",
+          "text": "Take shelter in the safest place nearby",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. These are classic tornado warning signs. Act right away, do not wait for a siren."
+        },
+        {
+          "id": "surv_storm_02_b",
+          "text": "Stop to film it for social media",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Every second outside increases your risk from flying debris."
+        },
+        {
+          "id": "surv_storm_02_c",
+          "text": "Open the windows to equalize pressure",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Opening windows does not protect your home and wastes time you need for shelter."
+        }
+      ]
+    },
+    {
+      "id": "surv_storm_03",
+      "topic": "storm",
+      "topicLabel": "Severe Storm",
+      "title": "Blackout in the Storm",
+      "description": "A storm knocks out the power at night and your home is completely dark.",
+      "choices": [
+        {
+          "id": "surv_storm_03_a",
+          "text": "Light several candles around the house",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Candles are a common cause of home fires. Use flashlights or battery lamps."
+        },
+        {
+          "id": "surv_storm_03_b",
+          "text": "Use flashlights or battery lamps",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Flashlights are the safest source of light during a power outage."
+        },
+        {
+          "id": "surv_storm_03_c",
+          "text": "Run a gas stove for light and warmth",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Using a stove this way risks fire and harmful gas build-up."
+        }
+      ]
+    },
+    {
+      "id": "surv_storm_04",
+      "topic": "storm",
+      "topicLabel": "Severe Storm",
+      "title": "Fallen Power Line",
+      "description": "After the storm, you find a power line lying on the ground in your yard.",
+      "choices": [
+        {
+          "id": "surv_storm_04_a",
+          "text": "Move it aside with a wooden broom handle",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Never touch or move a downed line, even with an object. Treat it as live."
+        },
+        {
+          "id": "surv_storm_04_b",
+          "text": "Stay back and report it to the utility",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Assume every downed line is live. Stay well back and report it."
+        },
+        {
+          "id": "surv_storm_04_c",
+          "text": "Step over it carefully and keep going",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Electricity can travel through the ground around a downed line."
+        }
+      ]
+    },
+    {
+      "id": "surv_quake_01",
+      "topic": "earthquake",
+      "topicLabel": "Earthquake",
+      "title": "Aftershock",
+      "description": "The main shaking has stopped. While you are checking your home, the floor starts shaking again.",
+      "choices": [
+        {
+          "id": "surv_quake_01_a",
+          "text": "Assume it is over and keep walking",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Aftershocks can be strong enough to cause more damage. React the same way every time."
+        },
+        {
+          "id": "surv_quake_01_b",
+          "text": "Drop, cover, and hold on again",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Treat every aftershock like the main quake."
+        },
+        {
+          "id": "surv_quake_01_c",
+          "text": "Run outside past the damaged walls",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Weakened walls and falling debris make moving during shaking dangerous."
+        }
+      ]
+    },
+    {
+      "id": "surv_quake_02",
+      "topic": "earthquake",
+      "topicLabel": "Earthquake",
+      "title": "Shaking in the Mall",
+      "description": "An earthquake hits while you are in a crowded shopping mall.",
+      "choices": [
+        {
+          "id": "surv_quake_02_a",
+          "text": "Run for the nearest exit with the panicking crowd",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Crowds and falling objects make running dangerous. Protect yourself first."
+        },
+        {
+          "id": "surv_quake_02_b",
+          "text": "Drop, cover, and hold on under a sturdy table",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Protect your head and neck, and wait until the shaking stops before moving."
+        },
+        {
+          "id": "surv_quake_02_c",
+          "text": "Stand in the open middle of the hallway",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Open areas offer no protection from falling signs, lights, and glass."
+        }
+      ]
+    },
+    {
+      "id": "surv_quake_03",
+      "topic": "earthquake",
+      "topicLabel": "Earthquake",
+      "title": "Strong Shaking at the Beach",
+      "description": "You are at the beach when severe earthquake shaking lasts for more than 20 seconds.",
+      "choices": [
+        {
+          "id": "surv_quake_03_a",
+          "text": "Wait on the sand to see what the water does",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "A tsunami may arrive within minutes. Do not wait for a visible sign."
+        },
+        {
+          "id": "surv_quake_03_b",
+          "text": "Move to high ground or inland right away",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. If severe shaking lasts 20 seconds or more, a tsunami may follow. Move inland or to high ground right away, without waiting for a warning."
+        },
+        {
+          "id": "surv_quake_03_c",
+          "text": "Swim out past the breaking waves",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Do not enter the water. Currents and waves can be deadly."
+        }
+      ]
+    },
+    {
+      "id": "surv_quake_04",
+      "topic": "earthquake",
+      "topicLabel": "Earthquake",
+      "title": "Smell of Gas",
+      "description": "After the shaking stops, you smell gas inside your home.",
+      "choices": [
+        {
+          "id": "surv_quake_04_a",
+          "text": "Flip the light switch to see better",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "A spark from a switch can ignite a gas leak."
+        },
+        {
+          "id": "surv_quake_04_b",
+          "text": "Light a match to locate the leak",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "A flame near leaking gas can cause an explosion."
+        },
+        {
+          "id": "surv_quake_04_c",
+          "text": "Open a window and get out quickly",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Get out, avoid any spark, and call for help from a safe distance."
+        }
+      ]
+    },
+    {
+      "id": "surv_aid_01",
+      "topic": "first_aid",
+      "topicLabel": "Basic First Aid",
+      "title": "Not Responding",
+      "description": "A man collapses in front of you. He does not respond when you shout and is not breathing normally.",
+      "choices": [
+        {
+          "id": "surv_aid_01_a",
+          "text": "Call for help and start chest compressions",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Call for help, then push hard and fast in the centre of the chest until help arrives."
+        },
+        {
+          "id": "surv_aid_01_b",
+          "text": "Give him water and wait for him to wake up",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Do not give anything by mouth to an unresponsive person. He needs urgent help."
+        },
+        {
+          "id": "surv_aid_01_c",
+          "text": "Leave him to rest and check on him later",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "Every minute without circulation reduces survival chances."
+        }
+      ]
+    },
+    {
+      "id": "surv_aid_02",
+      "topic": "first_aid",
+      "topicLabel": "Basic First Aid",
+      "title": "Burn With a Blister",
+      "description": "Your friend's hand was burned and a blister has formed.",
+      "choices": [
+        {
+          "id": "surv_aid_02_a",
+          "text": "Press ice on the burn to cool it",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Ice can damage the skin further. Cool burns with clean, cool running water instead."
+        },
+        {
+          "id": "surv_aid_02_b",
+          "text": "Cover it loosely and get medical care",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. A burn that blisters needs medical care. Cover it loosely with a clean, dry, non-adhesive dressing."
+        },
+        {
+          "id": "surv_aid_02_c",
+          "text": "Stick an adhesive bandage over it",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Adhesive bandages stick to the skin and can cause further damage."
+        }
+      ]
+    },
+    {
+      "id": "surv_aid_03",
+      "topic": "first_aid",
+      "topicLabel": "Basic First Aid",
+      "title": "Coughing but Choking",
+      "description": "A coworker is choking on food but is coughing loudly and can still speak.",
+      "choices": [
+        {
+          "id": "surv_aid_03_a",
+          "text": "Let them keep coughing and stay close",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. A strong cough is the best way to clear the airway. Step in only if they can no longer cough, speak, or breathe."
+        },
+        {
+          "id": "surv_aid_03_b",
+          "text": "Slap them hard on the back right away",
+          "correct": false,
+          "safetyImpact": -1,
+          "feedback": "Interfering with an effective cough can move the object deeper."
+        },
+        {
+          "id": "surv_aid_03_c",
+          "text": "Give them a big glass of water to drink",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Drinking while the airway is partly blocked can make choking worse."
+        }
+      ]
+    },
+    {
+      "id": "surv_aid_04",
+      "topic": "first_aid",
+      "topicLabel": "Basic First Aid",
+      "title": "Accident on the Road",
+      "description": "You see a motorcycle crash on a busy road. The rider is lying on the lane and cars are still passing.",
+      "choices": [
+        {
+          "id": "surv_aid_04_a",
+          "text": "Rush straight to the rider at once",
+          "correct": false,
+          "safetyImpact": -3,
+          "feedback": "You could become a second victim. Check for danger before you approach."
+        },
+        {
+          "id": "surv_aid_04_b",
+          "text": "Check it is safe, then call for help",
+          "correct": true,
+          "safetyImpact": 2,
+          "feedback": "Correct. Making sure the scene is safe protects you and the injured person."
+        },
+        {
+          "id": "surv_aid_04_c",
+          "text": "Drive off since others will help",
+          "correct": false,
+          "safetyImpact": -2,
+          "feedback": "Everyone assuming someone else will help is how people end up without help."
+        }
+      ]
+    }
+  ]
+}

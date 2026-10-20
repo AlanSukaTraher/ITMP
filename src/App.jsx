@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useGameEngine } from './hooks/useGameEngine';
 import { useProgress } from './hooks/useProgress';
 import { useBest } from './hooks/useBest';
-import { LEVELS, ALL_SCENARIOS } from './game/levels';
+import { LEVELS, TIMED_LEVELS, ALL_SCENARIOS } from './game/levels';
 import { starsFor, MIN_STARS_TO_UNLOCK } from './game/rules';
 import ModeSelect from './components/ModeSelect';
 import LevelSelect from './components/LevelSelect';
@@ -31,7 +31,8 @@ export default function App() {
   // Scenario and Timed Emergency modes are played level by level.
   // Survival Mode plays all scenarios in a random order.
   const usesLevels = mode === 'scenario' || mode === 'timed';
-  const level = LEVELS.find((l) => l.id === levelId) ?? null;
+  const levels = mode === 'timed' ? TIMED_LEVELS : LEVELS;
+  const level = levels.find((l) => l.id === levelId) ?? null;
   const inGame = mode === 'survival' || (usesLevels && level !== null);
 
   const chooseMode = (next) => {
@@ -65,7 +66,7 @@ export default function App() {
       {usesLevels && level === null && (
         <LevelSelect
           mode={mode}
-          levels={LEVELS}
+          levels={levels}
           progress={progress}
           best={best}
           onSelect={setLevelId}
@@ -81,6 +82,7 @@ export default function App() {
           key={`${mode}:${levelId ?? 'all'}`}
           mode={mode}
           level={level}
+          levels={levels}
           onRecord={recordResult}
           onBest={recordBest}
           onSelectLevel={setLevelId}
@@ -92,7 +94,7 @@ export default function App() {
   );
 }
 
-function GameRunner({ mode, level, onRecord, onBest, onSelectLevel, onLevels, onMenu }) {
+function GameRunner({ mode, level, levels, onRecord, onBest, onSelectLevel, onLevels, onMenu }) {
   // Scenarios are shuffled once per play, so replays are not identical.
   const [questions] = useState(() => shuffled(level ? level.scenarios : ALL_SCENARIOS));
   const [bestInfo, setBestInfo] = useState(null);
@@ -108,7 +110,7 @@ function GameRunner({ mode, level, onRecord, onBest, onSelectLevel, onLevels, on
   if (engine.gameOver) {
     const stars = level ? starsFor(engine.correctCount, engine.answeredCount) : null;
     const passed = stars !== null && stars >= MIN_STARS_TO_UNLOCK;
-    const nextLevel = level ? (LEVELS[LEVELS.findIndex((l) => l.id === level.id) + 1] ?? null) : null;
+    const nextLevel = level ? (levels[levels.findIndex((l) => l.id === level.id) + 1] ?? null) : null;
 
     return (
       <ResultsScreen
