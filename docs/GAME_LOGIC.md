@@ -31,11 +31,11 @@ Scenario and Timed modes share one level progression. Survival Mode does not use
 
 ## Safety Points (Survival Mode)
 
-- The pool starts at **6** and is capped at **10**.
+- The pool starts at **5** and is capped at **7**.
 - Every choice has a `safetyImpact` in the scenario JSON, and it is applied right after the player answers:
   - correct choice: **+2** (restores points)
   - wrong choice: **-1, -2 or -3**, depending on how dangerous the choice is
-- The pool is clamped between 0 and 10.
+- The pool is clamped between 0 and 7.
 - The run ends at **0**. The player still sees the explanation for the fatal answer first.
 - If the player answers all 15 scenarios without reaching 0, the run ends as "All emergencies survived".
 - The bar is green above 50%, yellow at 50% or below, and red at 30% or below.
@@ -54,7 +54,7 @@ Based on the share of correct answers in a level:
 ## Level progression and unlocking
 
 - Order: **Fire, Earthquake, Flood, Storm, First Aid**.
-- Fire is always open. A level opens when the **previous level has at least 1 star** (`MIN_STARS_TO_UNLOCK`).
+- Fire is always open. A level opens when the **previous level has at least 2 star** (`MIN_STARS_TO_UNLOCK`).
 - Levels cannot be skipped. A level with 0 stars is "not passed" and must be retried.
 - Replaying a level keeps the **best** rating, so a worse run never lowers it.
 - Progress is saved in the browser (`localStorage`, key `disaster-ready-progress-v1`), so it survives a reload. It is per browser, with no backend and no accounts. "Reset progress" on the level screen clears it.
@@ -83,7 +83,7 @@ Each scenario's response time is measured from when it is shown until the player
 The proposal leaves these open. Each can be changed in `rules.js`.
 
 1. **Storm** is not in the proposal's level order (Fire, Earthquake, Flood, First Aid), so it was placed before First Aid.
-2. **Unlock rule:** the proposal says completing a level unlocks the next. It is implemented as "earn at least 1 star", so answering everything wrong does not unlock it.
+2. **Unlock rule:** the proposal says completing a level unlocks the next. It is implemented as "earn at least 2 star", so answering everything wrong does not unlock it.
 3. **Survival is finite:** the proposal says Survival continues until points hit zero, but a perfect player would never finish, so the run also ends after all 15 scenarios.
 4. **Survival ignores levels:** it uses all topics, whether or not they are unlocked.
-5. **Pool size (6 start, 10 max)** was chosen by simulating random and skilled players. A player guessing at random runs out after about 6 scenarios, and a player who is right 80% of the time usually survives all 15.
+5. **Pool size (5 start, 7 max)** was chosen by simulating random and skilled players. A player guessing at random runs out after about 6 scenarios, and a player who is right 80% of the time usually survives all 15.
