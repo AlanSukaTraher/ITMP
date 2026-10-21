@@ -4,7 +4,7 @@
 
 Disaster Ready is a browser game that teaches emergency safety through quick decisions. You face realistic situations (a kitchen fire, a flash flood, an earthquake at night) and pick the safest action. After every choice you see why it was right or wrong, so the lesson sticks.
 
-**Play it:** itmpproject.netlify.app
+**Play it:** (itmpproject.netlify.app)
 
 Course project for FIT3081 IT Mini Project (Multimedia & Gaming), Xiamen University Malaysia, Foundation in IT. Supervisor: Mr. Foong.
 
