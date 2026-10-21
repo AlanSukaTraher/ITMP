@@ -4,7 +4,11 @@
 
 Disaster Ready is a browser game that teaches emergency safety through quick decisions. You face realistic situations (a kitchen fire, a flash flood, an earthquake at night) and pick the safest action. After every choice you see why it was right or wrong, so the lesson sticks.
 
+<<<<<<< HEAD
 **Play it:** YOUR-LIVE-LINK
+=======
+**Play it:** (itmpproject.netlify.app)
+>>>>>>> cfbaab776f225cbfd59fea6795c0f7ba6b7d3ee2
 
 Course project for FIT3081 IT Mini Project (Multimedia & Gaming), Xiamen University Malaysia, Foundation in IT. Supervisor: Mr. Foong.
 
@@ -81,11 +85,3 @@ All scenario content lives in the JSON files in `src/data`, separate from the ga
 React 19, Vite, plain CSS and JavaScript (ES6). There is no backend, no database and no accounts. Everything runs in the browser.
 
 ## Team (Group 2)
-
-| Member | Role |
-|---|---|
-| Alan Rozyyev | Project Lead and UX Designer |
-| Mukhammad Khujaev | Lead Developer (React Logic) |
-| Asadbek Akhadjonov | Frontend Developer (UI/CSS) |
-| Bekzat Bukenbayev | Content and Instructional Designer |
-| Abdulrehman | Multimedia and QA Lead (audio, icons, badges) |
