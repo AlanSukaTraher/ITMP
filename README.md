@@ -14,7 +14,7 @@ Course project for FIT3081 IT Mini Project (Multimedia & Gaming), Xiamen Univers
 - **3 game modes:**
   - **Scenario Mode:** play each topic as a level and earn a running score.
   - **Timed Emergency Mode:** 3 short timed scenarios per topic, each with its own 8, 10 or 12 second countdown. Faster correct answers earn bonus points.
-  - **Survival Mode:** random scenarios from every topic. Wrong choices drain your Safety Points, correct ones restore them. The run ends when they reach zero.
+  - **Survival Mode:** 20 random events from every topic. Wrong choices drain your Safety Points, correct ones restore them. The run ends when they reach zero or after all 20 events.
 - **Level progression:** Fire, Earthquake, Flood, Storm, First Aid. Earn at least 2 stars on a level to unlock the next.
 - **Results after every level:** score, 1 to 3 stars, accuracy, total time, average time per scenario, and your best score.
 - **Review your mistakes:** see what you chose, the safest action and the explanation.
@@ -27,7 +27,7 @@ Course project for FIT3081 IT Mini Project (Multimedia & Gaming), Xiamen Univers
 | Item | Rule |
 |---|---|
 | Correct answer | +10 points |
-| Timed Mode bonus | + the seconds left on the timer (up to 15) |
+| Timed Mode bonus | + the seconds left on the timer (up to 12) |
 | Wrong answer or timeout | 0 points |
 | Stars | 3 stars for 100% correct, 2 stars for 60% or more, 1 star for 30% or more |
 | Survival Safety Points | start at 5, maximum 7, each choice adds or removes points |
