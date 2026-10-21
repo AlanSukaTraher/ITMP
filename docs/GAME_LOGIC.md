@@ -32,18 +32,10 @@ Answer options are shuffled so the correct answer is not always in the same posi
 
 ## Safety Points (Survival Mode)
 
-<<<<<<< HEAD
-- The pool starts at **5** and is capped at **7** (`SAFETY_START`, `SAFETY_MAX`).
-- Every choice has a `safetyImpact` in the scenario JSON, applied right after the player answers:
-  - correct choice: **+2** (restores points)
-  - wrong choice: **-1, -2 or -3**, depending on how dangerous the choice is
-- If a choice has no `safetyImpact`, defaults are +2 (correct) and -2 (wrong). A timeout counts as -2.
-=======
 - The pool starts at **5** and is capped at **7**.
 - Every choice has a `safetyImpact` in the scenario JSON, and it is applied right after the player answers:
   - correct choice: **+2** (restores points)
   - wrong choice: **-1, -2 or -3**, depending on how dangerous the choice is
->>>>>>> cfbaab776f225cbfd59fea6795c0f7ba6b7d3ee2
 - The pool is clamped between 0 and 7.
 - The run ends at **0**. The player still sees the explanation for the fatal answer first.
 - If the player answers all 20 events without reaching 0, the run ends as "All emergencies survived".
@@ -64,15 +56,9 @@ Timed Mode (3 scenarios): 3/3 = 3 stars, 2/3 = 2 stars, 1/3 = 1 star, 0/3 = 0 st
 
 ## Level progression and unlocking
 
-<<<<<<< HEAD
-- Order: **Fire, Earthquake, Flood, Storm, First Aid** (`LEVEL_ORDER`).
-- Fire is always open. A level opens when the **previous level has at least 2 stars** (`MIN_STARS_TO_UNLOCK = 2`).
-- Levels cannot be skipped. A level with fewer than 2 stars is "not passed" and must be retried.
-=======
 - Order: **Fire, Earthquake, Flood, Storm, First Aid**.
 - Fire is always open. A level opens when the **previous level has at least 2 star** (`MIN_STARS_TO_UNLOCK`).
 - Levels cannot be skipped. A level with 0 stars is "not passed" and must be retried.
->>>>>>> cfbaab776f225cbfd59fea6795c0f7ba6b7d3ee2
 - Replaying a level keeps the **best** rating, so a worse run never lowers it.
 - Progress (stars per level) is saved in the browser (`localStorage`, key `disaster-ready-progress-v1`). Best scores are saved under `disaster-ready-best-v1`. Both are per browser, with no backend and no accounts. "Reset progress" on the level screen clears both.
 - A new result beats the saved best with a higher score, or the same score in less time.
