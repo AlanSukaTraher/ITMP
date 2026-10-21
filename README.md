@@ -10,10 +10,10 @@ Course project for FIT3081 IT Mini Project (Multimedia & Gaming), Xiamen Univers
 
 ## Features
 
-- **5 emergency topics:** Fire in a Building, Earthquake, Flash Flood, Severe Storm / Tornado and First Aid, with 6 scenarios each (30 in total).
+- **5 emergency topics:** Fire in a Building, Earthquake, Flash Flood, Severe Storm / Tornado and First Aid, with 6 scenarios each (30 level scenarios), plus 15 timed scenarios and 20 survival events (65 in total)..
 - **3 game modes:**
   - **Scenario Mode:** play each topic as a level and earn a running score.
-  - **Timed Emergency Mode:** the same levels with a 15 second countdown per scenario. Faster correct answers earn bonus points.
+  - **Timed Emergency Mode:** 3 short timed scenarios per topic, each with its own 8, 10 or 12 second countdown. Faster correct answers earn bonus points.
   - **Survival Mode:** random scenarios from every topic. Wrong choices drain your Safety Points, correct ones restore them. The run ends when they reach zero.
 - **Level progression:** Fire, Earthquake, Flood, Storm, First Aid. Earn at least 2 stars on a level to unlock the next.
 - **Results after every level:** score, 1 to 3 stars, accuracy, total time, average time per scenario, and your best score.

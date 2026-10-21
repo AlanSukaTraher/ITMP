@@ -88,7 +88,7 @@ Each scenario's response time is measured from when it is shown until the player
 The proposal leaves these open. Each can be changed in `rules.js`.
 
 1. **Storm** is not in the proposal's level order (Fire, Earthquake, Flood, First Aid), so it was placed before First Aid.
-2. **Unlock rule:** the proposal says completing a level unlocks the next. It is implemented as "earn at least 2 star", so answering everything wrong does not unlock it.
-3. **Survival is finite:** the proposal says Survival continues until points hit zero, but a perfect player would never finish, so the run also ends after all 15 scenarios.
+2. **Unlock rule:** the proposal says completing a level unlocks the next. It is implemented as "earn at least 2 stars", so answering everything wrong does not unlock it.
+3. **Survival is finite:** the proposal says Survival continues until points hit zero, but a perfect player would never finish, so the run also ends after all 20 scenarios.
 4. **Survival ignores levels:** it uses all topics, whether or not they are unlocked.
-5. **Pool size (5 start, 7 max)** was chosen by simulating random and skilled players. A player guessing at random runs out after about 6 scenarios, and a player who is right 80% of the time usually survives all 15.
+5. **Pool size (5 start, 7 max)** was chosen by simulating random and skilled players. A player guessing at random runs out after about 6 scenarios, and a player who is right 80% of the time usually survives all 20.
